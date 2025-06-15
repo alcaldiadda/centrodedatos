@@ -19,7 +19,6 @@
     "dist"
   ],
   "dependencies": {
-    "luxon": "^3.4.4",
     "node-appwrite": "16.0.0"
   },
   "devDependencies": {

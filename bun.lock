@@ -1,0 +1,21 @@
+{
+  "lockfileVersion": 1,
+  "workspaces": {
+    "": {
+      "name": "centro-de-datos",
+      "dependencies": {
+        "node-appwrite": "16.0.0",
+      },
+      "devDependencies": {
+        "typescript": "^5.8.3",
+      },
+    },
+  },
+  "packages": {
+    "node-appwrite": ["node-appwrite@16.0.0", "", { "dependencies": { "node-fetch-native-with-agent": "1.7.2" } }, "sha512-KLC8bNtZ8T2sxiudYNC0V5UwegxE7+FmLo96a5RuSgRRw3B4WSzs3JYy+WG8p+eZJjg1o1JrQeB7ikUc8qZc0Q=="],
+
+    "node-fetch-native-with-agent": ["node-fetch-native-with-agent@1.7.2", "", {}, "sha512-5MaOOCuJEvcckoz7/tjdx1M6OusOY6Xc5f459IaruGStWnKzlI1qpNgaAwmn4LmFYcsSlj+jBMk84wmmRxfk5g=="],
+
+    "typescript": ["typescript@5.8.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ=="],
+  }
+}
