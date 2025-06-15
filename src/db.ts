@@ -1,0 +1,101 @@
+// src/db.ts
+import { Models, Databases } from "node-appwrite";
+import { definicion } from "./definicion";
+
+interface CollectionConfig {
+  readonly name: string;
+  readonly id: string;
+}
+
+interface DatabaseConfig {
+  readonly name: string;
+  readonly id: string;
+  readonly collections: readonly CollectionConfig[];
+}
+
+interface CollectionMethods<T extends Models.Document> {
+  list: (queries?: string[]) => Promise<Models.DocumentList<T>>;
+  get: (documentId: string) => Promise<T>;
+  create: (
+    documentId: string,
+    data: object,
+    permissions?: string[]
+  ) => Promise<T>;
+  update: (
+    documentId: string,
+    data: object,
+    permissions?: string[]
+  ) => Promise<T>;
+  delete: (documentId: string) => Promise<object>;
+}
+
+type AppwriteDBInstance<T extends readonly DatabaseConfig[]> = {
+  [DBConfig in T[number] as DBConfig["name"]]: {
+    [ColConfig in DBConfig["collections"][number] as ColConfig["name"]]: CollectionMethods<Models.Document>;
+  };
+};
+
+/**
+ * Crea y devuelve el objeto 'db' tipado para interactuar con las
+ * bases de datos de Appwrite. Requiere una instancia inicializada de 'Databases'.
+ */
+export function createDbInstance(
+  appwriteDatabases: Databases
+): AppwriteDBInstance<typeof definicion> {
+  const db: AppwriteDBInstance<typeof definicion> = {} as AppwriteDBInstance<
+    typeof definicion
+  >;
+
+  definicion.forEach((dbConfig) => {
+    (db as any)[dbConfig.name] = {}; // Inicializa la DB en el objeto db
+
+    dbConfig.collections.forEach((collectionConfig) => {
+      (db as any)[dbConfig.name][collectionConfig.name] = {
+        list: (queries?: string[]) =>
+          appwriteDatabases.listDocuments(
+            dbConfig.id,
+            collectionConfig.id,
+            queries || []
+          ),
+        get: (documentId: string) =>
+          appwriteDatabases.getDocument(
+            dbConfig.id,
+            collectionConfig.id,
+            documentId
+          ),
+        create: (
+          documentId: string,
+          data: Record<string, any>,
+          permissions: string[]
+        ) =>
+          appwriteDatabases.createDocument(
+            dbConfig.id,
+            collectionConfig.id,
+            documentId,
+            data,
+            permissions
+          ),
+        update: (
+          documentId: string,
+          data: Record<string, any>,
+          permissions: string[]
+        ) =>
+          appwriteDatabases.updateDocument(
+            dbConfig.id,
+            collectionConfig.id,
+            documentId,
+            data,
+            permissions
+          ),
+        delete: (documentId: string) =>
+          appwriteDatabases.deleteDocument(
+            dbConfig.id,
+            collectionConfig.id,
+            documentId
+          ),
+      };
+    });
+  });
+
+  return db;
+}
