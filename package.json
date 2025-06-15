@@ -1,0 +1,28 @@
+{
+  "name": "centro-de-datos",
+  "version": "0.0.1",
+  "description": "Paquete que contine las referencias a todas las bases de datos, colecciones, funciones, etc.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/alcaldiadda/centro-de-datos",
+  "author": "Guillermo Parraguez",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "test": "jest ./test"
+  },
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "luxon": "^3.4.4",
+    "node-appwrite": "16.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
