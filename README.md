@@ -20,7 +20,7 @@ Utilice la función init() para configurar una instancia global y única de db y
 
 - Aplicaciones de Frontend (CSR), donde el cliente Appwrite se inicializa una vez y utiliza la misma configuración para todas las interacciones.
 
-- Aplicaciones de Backend (Node.js) que usan un cliente administrativo con una apiKey fija, o un cliente público que no requiere contexto de usuario por solicitud.
+- Aplicaciones de Backend (SSR) que usan un cliente administrativo con una apiKey fija, o un cliente público que no requiere contexto de usuario por solicitud.
 
 Después de llamar a `init()`, `db` y `func` estarán disponibles como objetos de acceso directo.
 
