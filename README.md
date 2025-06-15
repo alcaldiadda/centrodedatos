@@ -1,6 +1,6 @@
 # Centro de Datos
 
-🧠 Núcleo modular que agrupa acceso a bases de datos, funciones, almacenamiento y más — diseñado para proyectos distribuidos y escalables.
+🧠 Núcleo modular que agrupa acceso a bases de datos, funciones, almacenamiento y más — diseñado para los proyectos municipales.
 
 ## 🚀 Instalación
 
