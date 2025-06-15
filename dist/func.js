@@ -36,19 +36,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createFuncInstance = createFuncInstance;
+exports.createFunc = createFunc;
 /**
  * Crea y devuelve el objeto 'func' tipado para interactuar con las funciones de Appwrite.
  * Requiere una instancia inicializada de 'Functions'.
  */
-function createFuncInstance(appwriteFunciones) {
+function createFunc(appwriteFunciones) {
     var _this = this;
-    var func = {
+    var funcInstance = {
         registraMarcacion: function (datos, async, xpath, method, headers, scheduledAt) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 return [2 /*return*/, appwriteFunciones.createExecution("registra-marcacion", JSON.stringify(datos), async, xpath, method, headers, scheduledAt)];
             });
         }); },
     };
-    return func;
+    return funcInstance;
 }
+//

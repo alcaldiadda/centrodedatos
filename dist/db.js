@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createDbInstance = createDbInstance;
+exports.createDb = createDb;
 var definicion_1 = require("./definicion");
 /**
  * Crea y devuelve el objeto 'db' tipado para interactuar con las
  * bases de datos de Appwrite. Requiere una instancia inicializada de 'Databases'.
  */
-function createDbInstance(appwriteDatabases) {
+function createDb(appwriteDatabases) {
     var db = {};
     definicion_1.definicion.forEach(function (dbConfig) {
         db[dbConfig.name] = {}; // Inicializa la DB en el objeto db
