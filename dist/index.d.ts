@@ -1,21 +1,19 @@
 import { Query } from "node-appwrite";
 import { createDbInstance } from "./db";
 import { createFuncInstance } from "./func";
+type DbProxy = ReturnType<typeof createDbInstance> & {
+    _isInitialized?: boolean;
+    [key: string]: any;
+};
+type FuncProxy = ReturnType<typeof createFuncInstance> & {
+    _isInitialized?: boolean;
+    [key: string]: any;
+};
+export declare const db: DbProxy;
+export declare const func: FuncProxy;
 /**
- * Inicializa el paquete con tus credenciales de Appwrite.
- * @param endpoint El endpoint de Appwrite.
- * @param projectId El ID del proyecto de Appwrite.
- * @param apiKey La clave API de Appwrite.
+ * Inicializa el paquete 'centro-de-datos' con tus credenciales de Appwrite.
+ * Debe ser llamado una vez al inicio de tu aplicación.
  */
 export declare const init: (endpoint: string, projectId: string, apiKey: string) => void;
-/**
- * Proporciona acceso al cliente de base de datos de Appwrite.
- * Lanza un error si el paquete no ha sido inicializado.
- */
-export declare const db: () => ReturnType<typeof createDbInstance>;
-/**
- * Proporciona acceso a las funciones personalizadas de Appwrite.
- * Lanza un error si el paquete no ha sido inicializado.
- */
-export declare const func: () => ReturnType<typeof createFuncInstance>;
 export { Query };
