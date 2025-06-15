@@ -1,11 +1,22 @@
-import { ExecutionMethod, Functions } from "node-appwrite";
+import { ExecutionMethod, Functions, Models } from "node-appwrite";
+
+export interface CustomFunctions {
+  registraMarcacion: (
+    datos: Record<string, any>,
+    async?: boolean,
+    xpath?: string,
+    method?: ExecutionMethod,
+    headers?: object,
+    scheduledAt?: string
+  ) => Promise<Models.Execution>;
+}
 
 /**
  * Crea y devuelve el objeto 'func' tipado para interactuar con las funciones de Appwrite.
  * Requiere una instancia inicializada de 'Functions'.
  */
-export function createFuncInstance(appwriteFunciones: Functions) {
-  const func = {
+export function createFunc(appwriteFunciones: Functions): CustomFunctions {
+  const funcInstance: CustomFunctions = {
     registraMarcacion: async (
       datos: Record<string, any>,
       async?: boolean,
@@ -25,5 +36,6 @@ export function createFuncInstance(appwriteFunciones: Functions) {
       );
     },
   };
-  return func;
+  return funcInstance;
 }
+//

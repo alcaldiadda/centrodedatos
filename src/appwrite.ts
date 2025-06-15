@@ -10,6 +10,7 @@ export function initAppwriteServices(
   apiKey: string
 ): { client: Client; databases: Databases; functions: Functions } {
   const client = new Client();
+
   client.setEndpoint(endpoint).setProject(projectId).setKey(apiKey);
 
   const databases = new Databases(client);

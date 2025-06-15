@@ -2,18 +2,18 @@
 import { Models, Databases } from "node-appwrite";
 import { definicion } from "./definicion";
 
-interface CollectionConfig {
+export interface CollectionConfig {
   readonly name: string;
   readonly id: string;
 }
 
-interface DatabaseConfig {
+export interface DatabaseConfig {
   readonly name: string;
   readonly id: string;
   readonly collections: readonly CollectionConfig[];
 }
 
-interface CollectionMethods<T extends Models.Document> {
+export interface CollectionMethods<T extends Models.Document> {
   list: (queries?: string[]) => Promise<Models.DocumentList<T>>;
   get: (documentId: string) => Promise<T>;
   create: (
@@ -29,7 +29,7 @@ interface CollectionMethods<T extends Models.Document> {
   delete: (documentId: string) => Promise<object>;
 }
 
-type AppwriteDBInstance<T extends readonly DatabaseConfig[]> = {
+export type AppwriteDBInterface<T extends readonly DatabaseConfig[]> = {
   [DBConfig in T[number] as DBConfig["name"]]: {
     [ColConfig in DBConfig["collections"][number] as ColConfig["name"]]: CollectionMethods<Models.Document>;
   };
@@ -39,10 +39,10 @@ type AppwriteDBInstance<T extends readonly DatabaseConfig[]> = {
  * Crea y devuelve el objeto 'db' tipado para interactuar con las
  * bases de datos de Appwrite. Requiere una instancia inicializada de 'Databases'.
  */
-export function createDbInstance(
+export function createDb(
   appwriteDatabases: Databases
-): AppwriteDBInstance<typeof definicion> {
-  const db: AppwriteDBInstance<typeof definicion> = {} as AppwriteDBInstance<
+): AppwriteDBInterface<typeof definicion> {
+  const db: AppwriteDBInterface<typeof definicion> = {} as AppwriteDBInterface<
     typeof definicion
   >;
 
