@@ -57,10 +57,6 @@ export function buildAppwriteClientInstances(
     client.setKey(config.apiKey);
   } else if (config.sessionToken) {
     client.setSession(config.sessionToken);
-  } else {
-    throw new Error(
-      "Se debe proporcionar API KEY o SESSION TOKEN para inicializar el cliente de Appwrite."
-    );
   }
 
   const databases = new Databases(client);
