@@ -5,12 +5,13 @@ import {
   AppwriteClientConfig,
   buildAppwriteClientInstances,
 } from "./appwrite-sdk-builder";
+import { definicion } from "./definicion";
 
 /**
  * Tipo para el objeto devuelto por `CentroDeDatos()`.
  */
 interface CentroDeDatosInstances {
-  db: AppwriteDBInterface<any>;
+  db: AppwriteDBInterface<typeof definicion>;
   func: CustomFunctions;
 }
 

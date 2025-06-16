@@ -3,9 +3,10 @@ import {
   AppwriteClientConfig,
 } from "./appwrite-sdk-builder";
 import { createDb, AppwriteDBInterface } from "./db";
+import { definicion } from "./definicion";
 import { createFunc, CustomFunctions } from "./func";
 
-type GlobalDbInstanceType = AppwriteDBInterface<any>;
+type GlobalDbInstanceType = AppwriteDBInterface<typeof definicion>;
 type GlobalFuncInstanceType = CustomFunctions;
 
 // Variables privadas para las instancias globales
