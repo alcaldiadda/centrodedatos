@@ -24,5 +24,23 @@ function buildAppwriteClientInstances(config) {
     }
     var databases = new node_appwrite_1.Databases(client);
     var functions = new node_appwrite_1.Functions(client);
-    return { databases: databases, functions: functions };
+    var account = new node_appwrite_1.Account(client);
+    var users = new node_appwrite_1.Users(client);
+    var avatars = new node_appwrite_1.Avatars(client);
+    var locale = new node_appwrite_1.Locale(client);
+    var messaging = new node_appwrite_1.Messaging(client);
+    var storage = new node_appwrite_1.Storage(client);
+    var teams = new node_appwrite_1.Teams(client);
+    return {
+        client: client,
+        databases: databases,
+        functions: functions,
+        account: account,
+        users: users,
+        avatars: avatars,
+        locale: locale,
+        messaging: messaging,
+        storage: storage,
+        teams: teams,
+    };
 }

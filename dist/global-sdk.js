@@ -1,42 +1,34 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.func = exports.db = exports.init = void 0;
+exports.teams = exports.storage = exports.messaging = exports.locale = exports.avatars = exports.users = exports.account = exports.func = exports.db = exports.init = void 0;
 var appwrite_sdk_builder_1 = require("./appwrite-sdk-builder");
 var db_1 = require("./db");
 var func_1 = require("./func");
 // Variables privadas para las instancias globales
 var _isInitialized = false;
-var _globalDbInstance = null;
-var _globalFuncInstance = null;
-// Handlers de Proxy para las instancias globales 'db' y 'func'
-// Esto permite la sintaxis `db.database.collection` y la verificación de inicialización.
-var globalDbProxyHandler = {
-    get: function (target, prop, receiver) {
-        if (!_isInitialized || !_globalDbInstance) {
-            throw new Error("centro-de-datos: El SDK global no ha sido inicializado. Llama a `init()` primero.");
-        }
-        return Reflect.get(_globalDbInstance, prop, receiver);
-    },
-};
-var globalFuncProxyHandler = {
-    get: function (target, prop, receiver) {
-        if (!_isInitialized || !_globalFuncInstance) {
-            throw new Error("centro-de-datos: El SDK global no ha sido inicializado. Llama a `init()` primero.");
-        }
-        return Reflect.get(_globalFuncInstance, prop, receiver);
-    },
-};
+var _actualGlobalSDKInstance = null;
+// Proxy Handler genérico para todos los servicios globales exportados
+// Esto permite que 'db', 'func', 'account', etc. sean propiedades directas.
+function createGlobalServiceProxyHandler(serviceName) {
+    return {
+        get: function (target, prop, receiver) {
+            if (!_isInitialized || !_actualGlobalSDKInstance) {
+                throw new Error("centro-de-datos: El SDK global no ha sido inicializado. Llama a `init()` primero.");
+            }
+            // Accede a la propiedad del servicio específico dentro de _actualGlobalSDKInstance
+            var serviceInstance = _actualGlobalSDKInstance[serviceName];
+            if (!serviceInstance) {
+                // Esto no debería ocurrir si buildAppwriteClientInstances devuelve todo
+                throw new Error("centro-de-datos: El servicio '".concat(String(serviceName), "' no se encontr\u00F3 en la instancia global inicializada."));
+            }
+            return Reflect.get(serviceInstance, prop, receiver);
+        },
+    };
+}
 /**
  * Inicializa la instancia global del SDK 'centro-de-datos'.
  *
- * **¡IMPORTANTE!** Este método configura un cliente global de Appwrite.
- * Si necesitas manejar sesiones de usuario dinámicas por solicitud
- * (ej. en Next.js Server Components, API Routes), **NO uses este
- * 'db'/'func' global** para operaciones específicas del usuario.
- * En su lugar, usa la función `CentroDeDatos()` para crear instancias por solicitud.
- *
- * @param config Configuración para el cliente de Appwrite (endpoint,
- * projectId, apiKey u optional sessionToken).
+ * @param config Configuración para el cliente de Appwrite (endpoint, projectId, apiKey u optional sessionToken).
  */
 var init = function (config) {
     if (_isInitialized) {
@@ -58,12 +50,28 @@ var init = function (config) {
             "será el mismo para todas las solicitudes. Para sesiones de usuario dinámicas por solicitud, " +
             "usa `CentroDeDatos({ endpoint, projectId, sessionToken })` en el contexto de cada solicitud.");
     }
-    var _a = (0, appwrite_sdk_builder_1.buildAppwriteClientInstances)(config), databases = _a.databases, functions = _a.functions;
-    _globalDbInstance = (0, db_1.createDb)(databases);
-    _globalFuncInstance = (0, func_1.createFunc)(functions);
+    var _a = (0, appwrite_sdk_builder_1.buildAppwriteClientInstances)(config), databases = _a.databases, functions = _a.functions, account = _a.account, users = _a.users, avatars = _a.avatars, locale = _a.locale, messaging = _a.messaging, storage = _a.storage, teams = _a.teams;
+    _actualGlobalSDKInstance = {
+        db: (0, db_1.createDb)(databases),
+        func: (0, func_1.createFunc)(functions),
+        account: account,
+        users: users,
+        avatars: avatars,
+        locale: locale,
+        messaging: messaging,
+        storage: storage,
+        teams: teams,
+    };
     _isInitialized = true;
     console.log("centro-de-datos: SDK global inicializado.");
 };
 exports.init = init;
-exports.db = new Proxy({}, globalDbProxyHandler);
-exports.func = new Proxy({}, globalFuncProxyHandler);
+exports.db = new Proxy({}, createGlobalServiceProxyHandler("db"));
+exports.func = new Proxy({}, createGlobalServiceProxyHandler("func"));
+exports.account = new Proxy({}, createGlobalServiceProxyHandler("account"));
+exports.users = new Proxy({}, createGlobalServiceProxyHandler("users"));
+exports.avatars = new Proxy({}, createGlobalServiceProxyHandler("avatars"));
+exports.locale = new Proxy({}, createGlobalServiceProxyHandler("locale"));
+exports.messaging = new Proxy({}, createGlobalServiceProxyHandler("messaging"));
+exports.storage = new Proxy({}, createGlobalServiceProxyHandler("storage"));
+exports.teams = new Proxy({}, createGlobalServiceProxyHandler("teams"));
