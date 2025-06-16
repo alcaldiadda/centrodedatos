@@ -1,7 +1,8 @@
 import { AppwriteClientConfig } from "./appwrite-sdk-builder";
 import { AppwriteDBInterface } from "./db";
+import { definicion } from "./definicion";
 import { CustomFunctions } from "./func";
-type GlobalDbInstanceType = AppwriteDBInterface<any>;
+type GlobalDbInstanceType = AppwriteDBInterface<typeof definicion>;
 type GlobalFuncInstanceType = CustomFunctions;
 /**
  * Inicializa la instancia global del SDK 'centro-de-datos'.
