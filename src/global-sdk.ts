@@ -58,14 +58,24 @@ export const init = (config: AppwriteClientConfig): void => {
     return;
   }
 
-  if (typeof window === "undefined" && !config.apiKey && config.sessionToken) {
-    // Si estamos en un entorno sin 'window' (SSR) y no se está usando una API Key
+  if (typeof window === "undefined" && !config.apiKey && !config.sessionToken) {
     console.warn(
-      "centro-de-datos: Has inicializado el SDK global en un entorno SSR/Node.js " +
-        "sin una `apiKey` y con un `sessionToken` o como cliente público. " +
-        "Las instancias `db` y `func` globales no son adecuadas para sesiones de usuario dinámicas por solicitud. " +
+      "centro-de-datos: Advertencia: Has inicializado el SDK global en un entorno SSR/Node.js " +
+        "sin una `apiKey` y sin un `sessionToken` fijo. " +
+        "Las instancias `db` y `func` globales NO son adecuadas para sesiones de usuario dinámicas por solicitud. " +
         "Para sesiones de usuario en SSR, usa `CentroDeDatos({ endpoint, projectId, sessionToken })` directamente " +
         "en el contexto de cada solicitud para obtener instancias aisladas."
+    );
+  } else if (
+    typeof window === "undefined" &&
+    !config.apiKey &&
+    config.sessionToken
+  ) {
+    console.warn(
+      "centro-de-datos: Advertencia: Has inicializado el SDK global en un entorno SSR/Node.js " +
+        "sin una `apiKey` y con un `sessionToken` fijo. Ten en cuenta que este `sessionToken` " +
+        "será el mismo para todas las solicitudes. Para sesiones de usuario dinámicas por solicitud, " +
+        "usa `CentroDeDatos({ endpoint, projectId, sessionToken })` en el contexto de cada solicitud."
     );
   }
 
