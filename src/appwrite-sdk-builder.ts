@@ -1,4 +1,15 @@
-import { Client, Databases, Functions } from "node-appwrite";
+import {
+  Client,
+  Databases,
+  Functions,
+  Account,
+  Users,
+  Avatars,
+  Locale,
+  Messaging,
+  Storage,
+  Teams,
+} from "node-appwrite";
 
 /**
  * Opciones de configuración para construir un cliente Appwrite.
@@ -12,16 +23,32 @@ export interface AppwriteClientConfig {
 }
 
 /**
+ * Interfaz que define todas las instancias de los servicios de
+ * Appwrite que se construirán.
+ */
+export interface AppwriteServiceInstances {
+  client: Client;
+  databases: Databases;
+  functions: Functions;
+  account: Account;
+  users: Users;
+  avatars: Avatars;
+  locale: Locale;
+  messaging: Messaging;
+  storage: Storage;
+  teams: Teams;
+}
+
+/**
  * Construye y devuelve instancias inicializadas de Appwrite Databases y Functions.
  * Esta es una función de bajo nivel utilizada internamente por el paquete.
  *
  * @param config Configuración para el cliente de Appwrite.
  * @returns Un objeto que contiene instancias de Databases y Functions.
  */
-export function buildAppwriteClientInstances(config: AppwriteClientConfig): {
-  databases: Databases;
-  functions: Functions;
-} {
+export function buildAppwriteClientInstances(
+  config: AppwriteClientConfig
+): AppwriteServiceInstances {
   const client = new Client()
     .setEndpoint(config.endpoint)
     .setProject(config.projectId);
@@ -38,6 +65,24 @@ export function buildAppwriteClientInstances(config: AppwriteClientConfig): {
 
   const databases = new Databases(client);
   const functions = new Functions(client);
+  const account = new Account(client);
+  const users = new Users(client);
+  const avatars = new Avatars(client);
+  const locale = new Locale(client);
+  const messaging = new Messaging(client);
+  const storage = new Storage(client);
+  const teams = new Teams(client);
 
-  return { databases, functions };
+  return {
+    client,
+    databases,
+    functions,
+    account,
+    users,
+    avatars,
+    locale,
+    messaging,
+    storage,
+    teams,
+  };
 }

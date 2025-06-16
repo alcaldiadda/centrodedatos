@@ -1,4 +1,13 @@
 import {
+  Account,
+  Avatars,
+  Locale,
+  Messaging,
+  Storage,
+  Teams,
+  Users,
+} from "node-appwrite";
+import {
   buildAppwriteClientInstances,
   AppwriteClientConfig,
 } from "./appwrite-sdk-builder";
@@ -6,49 +15,52 @@ import { createDb, AppwriteDBInterface } from "./db";
 import { definicion } from "./definicion";
 import { createFunc, CustomFunctions } from "./func";
 
-type GlobalDbInstanceType = AppwriteDBInterface<typeof definicion>;
-type GlobalFuncInstanceType = CustomFunctions;
-
+interface GlobalSDKCombinedInstance {
+  db: AppwriteDBInterface<typeof definicion>;
+  func: CustomFunctions;
+  account: Account;
+  users: Users;
+  avatars: Avatars;
+  locale: Locale;
+  messaging: Messaging;
+  storage: Storage;
+  teams: Teams;
+}
 // Variables privadas para las instancias globales
 let _isInitialized = false;
-let _globalDbInstance: GlobalDbInstanceType | null = null;
-let _globalFuncInstance: GlobalFuncInstanceType | null = null;
+let _actualGlobalSDKInstance: GlobalSDKCombinedInstance | null = null;
 
-// Handlers de Proxy para las instancias globales 'db' y 'func'
-// Esto permite la sintaxis `db.database.collection` y la verificación de inicialización.
-const globalDbProxyHandler: ProxyHandler<GlobalDbInstanceType> = {
-  get: (target, prop, receiver) => {
-    if (!_isInitialized || !_globalDbInstance) {
-      throw new Error(
-        "centro-de-datos: El SDK global no ha sido inicializado. Llama a `init()` primero."
-      );
-    }
-    return Reflect.get(_globalDbInstance, prop, receiver);
-  },
-};
-
-const globalFuncProxyHandler: ProxyHandler<GlobalFuncInstanceType> = {
-  get: (target, prop, receiver) => {
-    if (!_isInitialized || !_globalFuncInstance) {
-      throw new Error(
-        "centro-de-datos: El SDK global no ha sido inicializado. Llama a `init()` primero."
-      );
-    }
-    return Reflect.get(_globalFuncInstance, prop, receiver);
-  },
-};
+// Proxy Handler genérico para todos los servicios globales exportados
+// Esto permite que 'db', 'func', 'account', etc. sean propiedades directas.
+function createGlobalServiceProxyHandler<
+  T extends keyof GlobalSDKCombinedInstance
+>(serviceName: T): ProxyHandler<GlobalSDKCombinedInstance[T]> {
+  return {
+    get: (target, prop, receiver) => {
+      if (!_isInitialized || !_actualGlobalSDKInstance) {
+        throw new Error(
+          "centro-de-datos: El SDK global no ha sido inicializado. Llama a `init()` primero."
+        );
+      }
+      // Accede a la propiedad del servicio específico dentro de _actualGlobalSDKInstance
+      const serviceInstance = _actualGlobalSDKInstance[serviceName];
+      if (!serviceInstance) {
+        // Esto no debería ocurrir si buildAppwriteClientInstances devuelve todo
+        throw new Error(
+          `centro-de-datos: El servicio '${String(
+            serviceName
+          )}' no se encontró en la instancia global inicializada.`
+        );
+      }
+      return Reflect.get(serviceInstance, prop, receiver);
+    },
+  };
+}
 
 /**
  * Inicializa la instancia global del SDK 'centro-de-datos'.
  *
- * **¡IMPORTANTE!** Este método configura un cliente global de Appwrite.
- * Si necesitas manejar sesiones de usuario dinámicas por solicitud
- * (ej. en Next.js Server Components, API Routes), **NO uses este
- * 'db'/'func' global** para operaciones específicas del usuario.
- * En su lugar, usa la función `CentroDeDatos()` para crear instancias por solicitud.
- *
- * @param config Configuración para el cliente de Appwrite (endpoint,
- * projectId, apiKey u optional sessionToken).
+ * @param config Configuración para el cliente de Appwrite (endpoint, projectId, apiKey u optional sessionToken).
  */
 export const init = (config: AppwriteClientConfig): void => {
   if (_isInitialized) {
@@ -79,21 +91,67 @@ export const init = (config: AppwriteClientConfig): void => {
     );
   }
 
-  const { databases, functions } = buildAppwriteClientInstances(config);
+  const {
+    databases,
+    functions,
+    account,
+    users,
+    avatars,
+    locale,
+    messaging,
+    storage,
+    teams,
+  } = buildAppwriteClientInstances(config);
 
-  _globalDbInstance = createDb(databases);
-  _globalFuncInstance = createFunc(functions);
+  _actualGlobalSDKInstance = {
+    db: createDb(databases),
+    func: createFunc(functions),
+    account: account,
+    users: users,
+    avatars: avatars,
+    locale: locale,
+    messaging: messaging,
+    storage: storage,
+    teams: teams,
+  };
   _isInitialized = true;
 
   console.log("centro-de-datos: SDK global inicializado.");
 };
 
-export const db: GlobalDbInstanceType = new Proxy(
-  {} as GlobalDbInstanceType,
-  globalDbProxyHandler
+export const db: AppwriteDBInterface<typeof definicion> = new Proxy(
+  {} as AppwriteDBInterface<typeof definicion>,
+  createGlobalServiceProxyHandler("db")
 );
-
-export const func: GlobalFuncInstanceType = new Proxy(
-  {} as GlobalFuncInstanceType,
-  globalFuncProxyHandler
+export const func: CustomFunctions = new Proxy(
+  {} as CustomFunctions,
+  createGlobalServiceProxyHandler("func")
+);
+export const account: Account = new Proxy(
+  {} as Account,
+  createGlobalServiceProxyHandler("account")
+);
+export const users: Users = new Proxy(
+  {} as Users,
+  createGlobalServiceProxyHandler("users")
+);
+export const avatars: Avatars = new Proxy(
+  {} as Avatars,
+  createGlobalServiceProxyHandler("avatars")
+);
+export const locale: Locale = new Proxy(
+  {} as Locale,
+  createGlobalServiceProxyHandler("locale")
+);
+export const messaging: Messaging = new Proxy(
+  {} as Messaging,
+  createGlobalServiceProxyHandler("messaging")
+);
+export const storage: Storage = new Proxy(
+  {} as Storage,
+  createGlobalServiceProxyHandler("storage")
+);
+export const teams: Teams = new Proxy(
+  {} as Teams,
+  createGlobalServiceProxyHandler("teams")
 );
