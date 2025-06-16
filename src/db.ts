@@ -57,11 +57,12 @@ export function createDb(
             collectionConfig.id,
             queries || []
           ),
-        get: (documentId: string) =>
+        get: (documentId: string, queries?: string[]) =>
           appwriteDatabases.getDocument(
             dbConfig.id,
             collectionConfig.id,
-            documentId
+            documentId,
+            queries
           ),
         create: (
           documentId: string,
