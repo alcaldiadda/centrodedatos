@@ -5,9 +5,9 @@ declare namespace Acceso {
     numero_serie: string;
     ubicacion?: string;
     habilitado?: boolean;
-    ip?: boolean;
+    ip?: string;
     logs?: boolean;
-    heartbeat?: boolean;
+    heartbeat?: string;
     puerto?: string;
     stamp?: string;
     opStamp?: string;
