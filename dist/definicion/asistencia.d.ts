@@ -36,3 +36,8 @@ export declare const TipoMarcacion: {
     readonly INCONCLUSA: "INCONCLUSA";
     readonly NO_HORARIO: "NO_HORARIO";
 };
+export declare const JornadaTipo: {
+    readonly REGULAR: "regular";
+    readonly ESPECIAL: "especial";
+    readonly USUARIO: "usuario";
+};

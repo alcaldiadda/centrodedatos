@@ -1,13 +1,7 @@
-import { TipoMarcacion } from "root/definicion/asistencia";
+import { JornadaTipo, TipoMarcacion } from "root/definicion/asistencia";
 import { Models } from "node-appwrite";
 
 declare namespace Asistencia {
-  type JornadaTipo = {
-    REGULAR: "regular";
-    ESPECIAL: "especial";
-    USUARIO: "usuario";
-  };
-
   type MarcacionBase = {
     id_usuario?: string;
     fecha: string;
@@ -102,7 +96,7 @@ declare namespace Asistencia {
     colacion_fin?: string;
     fecha?: string;
     id_usuario?: string;
-    tipo: JornadaTipo;
+    tipo: typeof JornadaTipo;
     creado_el: string;
     actualizado_el: string;
   };

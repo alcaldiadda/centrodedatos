@@ -47,3 +47,9 @@ export const TipoMarcacion = {
   INCONCLUSA: "INCONCLUSA",
   NO_HORARIO: "NO_HORARIO",
 } as const;
+
+export const JornadaTipo = {
+  REGULAR: "regular",
+  ESPECIAL: "especial",
+  USUARIO: "usuario",
+} as const;
