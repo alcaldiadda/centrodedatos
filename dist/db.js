@@ -15,8 +15,8 @@ function createDb(appwriteDatabases) {
                 list: function (queries) {
                     return appwriteDatabases.listDocuments(dbConfig.id, collectionConfig.id, queries || []);
                 },
-                get: function (documentId) {
-                    return appwriteDatabases.getDocument(dbConfig.id, collectionConfig.id, documentId);
+                get: function (documentId, queries) {
+                    return appwriteDatabases.getDocument(dbConfig.id, collectionConfig.id, documentId, queries);
                 },
                 create: function (documentId, data, permissions) {
                     return appwriteDatabases.createDocument(dbConfig.id, collectionConfig.id, documentId, data, permissions);
