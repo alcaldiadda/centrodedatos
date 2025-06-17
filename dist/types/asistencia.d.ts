@@ -1,3 +1,4 @@
+import { TipoMarcacion } from "root/definicion/asistencia";
 import { Models } from "node-appwrite";
 declare namespace Asistencia {
     type JornadaTipo = {
@@ -87,5 +88,9 @@ declare namespace Asistencia {
     };
     type JornadaProps = Jornada & Models.Document;
     type TodosProps = MarcacionProps | MarcacionDiariaProps | MarcacionMensualProps | AusenciaProps | FeriadoProps | JornadaProps;
+    type SalidaTipoMarcacion = {
+        tipo: (typeof TipoMarcacion)[keyof typeof TipoMarcacion];
+        mensaje: string;
+    };
 }
 export { Asistencia };

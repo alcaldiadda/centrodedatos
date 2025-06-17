@@ -1,4 +1,4 @@
-import { Asistencia } from "helper/types/asistencia";
+import { Asistencia } from "root/types/asistencia";
 
 export const asistencia = [
   {

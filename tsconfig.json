@@ -13,7 +13,7 @@
 
     "baseUrl": ".",
     "paths": {
-      "helper/*": ["./src/*"]
+      "root/*": ["./src/*"]
     },
     "outDir": "./dist",
     "declaration": true

@@ -1,4 +1,4 @@
-import { Persona } from "helper/types/persona";
+import { Persona } from "root/types/persona";
 export declare const persona: readonly [{
     readonly name: "persona";
     readonly id: "persona";

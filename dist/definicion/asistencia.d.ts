@@ -1,4 +1,4 @@
-import { Asistencia } from "helper/types/asistencia";
+import { Asistencia } from "root/types/asistencia";
 export declare const asistencia: readonly [{
     readonly name: "asistencia";
     readonly id: "asistencia";

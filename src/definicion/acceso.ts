@@ -1,4 +1,4 @@
-import { Acceso } from "helper/types/acceso";
+import { Acceso } from "root/types/acceso";
 
 export const acceso = [
   {

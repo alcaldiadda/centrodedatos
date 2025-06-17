@@ -1,4 +1,4 @@
-import { Acceso } from "helper/types/acceso";
+import { Acceso } from "root/types/acceso";
 export declare const acceso: readonly [{
     readonly name: "acceso";
     readonly id: "acceso";

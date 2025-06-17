@@ -1,22 +1,20 @@
 import {
   Account,
   Avatars,
-  Databases,
-  Functions,
   Locale,
   Messaging,
   Storage,
   Teams,
   Users,
 } from "node-appwrite";
-import { createDb, AppwriteDBInterface } from "./db";
-import { createFunc, CustomFunctions } from "./func";
 import {
   AppwriteClientConfig,
   AppwriteServiceInstances,
   buildAppwriteClientInstances,
 } from "./appwrite-sdk-builder";
+import { AppwriteDBInterface, createDb } from "./db";
 import { definicion } from "./definicion";
+import { createFunc, CustomFunctions } from "./func";
 
 /**
  * Tipo para el objeto devuelto por `CentroDeDatos()`.
