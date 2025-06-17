@@ -1,9 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Query = exports.ID = exports.CentroDeDatos = exports.teams = exports.storage = exports.messaging = exports.locale = exports.avatars = exports.users = exports.account = exports.func = exports.db = exports.init = void 0;
+exports.TipoMarcacion = exports.Query = exports.ID = exports.CentroDeDatos = exports.teams = exports.storage = exports.messaging = exports.locale = exports.avatars = exports.users = exports.account = exports.func = exports.db = exports.init = void 0;
 var node_appwrite_1 = require("node-appwrite");
 Object.defineProperty(exports, "ID", { enumerable: true, get: function () { return node_appwrite_1.ID; } });
 Object.defineProperty(exports, "Query", { enumerable: true, get: function () { return node_appwrite_1.Query; } });
+var asistencia_1 = require("./definicion/asistencia");
+Object.defineProperty(exports, "TipoMarcacion", { enumerable: true, get: function () { return asistencia_1.TipoMarcacion; } });
 var global_sdk_1 = require("./global-sdk");
 Object.defineProperty(exports, "init", { enumerable: true, get: function () { return global_sdk_1.init; } });
 Object.defineProperty(exports, "db", { enumerable: true, get: function () { return global_sdk_1.db; } });

@@ -1,5 +1,6 @@
 import { ID, Query } from "node-appwrite";
 import { Acceso, Asistencia, Persona } from "./types";
+import { TipoMarcacion } from "./definicion/asistencia";
 
 export type { AppwriteClientConfig } from "./appwrite-sdk-builder";
 export {
@@ -28,3 +29,5 @@ export type {
 export type { CustomFunctions } from "./func";
 
 export { Acceso, Asistencia, Persona };
+
+export { TipoMarcacion };

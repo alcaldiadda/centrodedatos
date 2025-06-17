@@ -7,7 +7,7 @@ declare namespace Asistencia {
     USUARIO: "usuario";
   };
 
-  type Marcacion = {
+  type MarcacionBase = {
     id_usuario?: string;
     fecha: string;
     tipo: string;
@@ -20,7 +20,17 @@ declare namespace Asistencia {
     identidad_pin: string;
   };
 
-  type MarcacionProps = Marcacion & Models.Document;
+  type MarcacionProps = MarcacionBase & Models.Document;
+
+  type MarcacionBruta = Pick<
+    MarcacionBase,
+    "id_usuario" | "identidad_pin" | "fecha"
+  >;
+
+  export type Marcacion = Pick<
+    MarcacionBase,
+    "id_usuario" | "id_jornada" | "fecha" | "tipo"
+  >;
 
   type MarcacionDiaria = {
     id_usuario: string;

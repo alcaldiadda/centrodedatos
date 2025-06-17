@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.asistencia = void 0;
+exports.TipoMarcacion = exports.asistencia = void 0;
 exports.asistencia = [
     {
         name: "asistencia",
@@ -39,3 +39,11 @@ exports.asistencia = [
         ],
     },
 ];
+exports.TipoMarcacion = {
+    ENTRADA: "ENTRADA",
+    SALIDA: "SALIDA",
+    INICIO_COLACION: "INICIO_COLACION",
+    FIN_COLACION: "FIN_COLACION",
+    INCONCLUSA: "INCONCLUSA",
+    NO_HORARIO: "NO_HORARIO",
+};
