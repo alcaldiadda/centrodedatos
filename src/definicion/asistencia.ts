@@ -1,0 +1,40 @@
+import { Asistencia } from "helper/types/asistencia";
+
+export const asistencia = [
+  {
+    name: "asistencia",
+    id: "asistencia",
+    collections: [
+      {
+        name: "marcacion",
+        id: "marcacion",
+        documentType: {} as Asistencia.MarcacionProps,
+      },
+      {
+        name: "marcacionDiaria",
+        id: "marcacion-diaria",
+        documentType: {} as Asistencia.MarcacionDiariaProps,
+      },
+      {
+        name: "marcacionMensual",
+        id: "marcacion-Mensual",
+        documentType: {} as Asistencia.MarcacionMensualProps,
+      },
+      {
+        name: "ausencia",
+        id: "ausencia",
+        documentType: {} as Asistencia.AusenciaProps,
+      },
+      {
+        name: "feriado",
+        id: "feriado",
+        documentType: {} as Asistencia.FeriadoProps,
+      },
+      {
+        name: "jornada",
+        id: "jornada",
+        documentType: {} as Asistencia.JornadaProps,
+      },
+    ] as const,
+  } as const,
+] as const;
