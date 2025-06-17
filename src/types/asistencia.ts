@@ -66,6 +66,14 @@ declare namespace Asistencia {
 
   type MarcacionMensualProps = MarcacionMensual & Models.Document;
 
+  type RegistraMarcacion = {
+    id_dispositivo?: string;
+    identidad_pin?: string;
+    $id?: string;
+    pid?: string;
+    fecha_string: string;
+  };
+
   type Ausencia = {
     id_usuario: string;
     tipo: string;
