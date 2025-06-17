@@ -4,19 +4,19 @@ export declare const definicion: readonly [{
     readonly collections: readonly [{
         readonly name: "dispositivo";
         readonly id: "dispositivo";
-        readonly documentType: import("../types/acceso").Acceso.DispositivoProps;
+        readonly documentType: import("..").Acceso.DispositivoProps;
     }, {
         readonly name: "dispositivoLog";
         readonly id: "dispositivo-log";
-        readonly documentType: import("../types/acceso").Acceso.DispositivoLogProps;
+        readonly documentType: import("..").Acceso.DispositivoLogProps;
     }, {
         readonly name: "dispositivoRespuesta";
         readonly id: "dispositivo-respuesta";
-        readonly documentType: import("../types/acceso").Acceso.DispositivoRespuestaProps;
+        readonly documentType: import("..").Acceso.DispositivoRespuestaProps;
     }, {
         readonly name: "dispositivoComando";
         readonly id: "dispositivo-comando";
-        readonly documentType: import("../types/acceso").Acceso.DispositivoComandoProps;
+        readonly documentType: import("..").Acceso.DispositivoComandoProps;
     }];
 }, {
     readonly name: "asistencia";
@@ -24,27 +24,27 @@ export declare const definicion: readonly [{
     readonly collections: readonly [{
         readonly name: "marcacion";
         readonly id: "marcacion";
-        readonly documentType: import("../types/asistencia").Asistencia.MarcacionProps;
+        readonly documentType: import("..").Asistencia.MarcacionProps;
     }, {
         readonly name: "marcacionDiaria";
         readonly id: "marcacion-diaria";
-        readonly documentType: import("../types/asistencia").Asistencia.MarcacionDiariaProps;
+        readonly documentType: import("..").Asistencia.MarcacionDiariaProps;
     }, {
         readonly name: "marcacionMensual";
         readonly id: "marcacion-Mensual";
-        readonly documentType: import("../types/asistencia").Asistencia.MarcacionMensualProps;
+        readonly documentType: import("..").Asistencia.MarcacionMensualProps;
     }, {
         readonly name: "ausencia";
         readonly id: "ausencia";
-        readonly documentType: import("../types/asistencia").Asistencia.AusenciaProps;
+        readonly documentType: import("..").Asistencia.AusenciaProps;
     }, {
         readonly name: "feriado";
         readonly id: "feriado";
-        readonly documentType: import("../types/asistencia").Asistencia.FeriadoProps;
+        readonly documentType: import("..").Asistencia.FeriadoProps;
     }, {
         readonly name: "jornada";
         readonly id: "jornada";
-        readonly documentType: import("../types/asistencia").Asistencia.JornadaProps;
+        readonly documentType: import("..").Asistencia.JornadaProps;
     }];
 }, {
     readonly name: "persona";
@@ -52,18 +52,18 @@ export declare const definicion: readonly [{
     readonly collections: readonly [{
         readonly name: "identidad";
         readonly id: "identidad";
-        readonly documentType: import("../types/persona").Persona.IdentidadProps;
+        readonly documentType: import("..").Persona.IdentidadProps;
     }, {
         readonly name: "departamento";
         readonly id: "departamento";
-        readonly documentType: import("../types/persona").Persona.DepartamentoProps;
+        readonly documentType: import("..").Persona.DepartamentoProps;
     }, {
         readonly name: "identidadDispositivo";
         readonly id: "identidad-dispositivo";
-        readonly documentType: import("../types/persona").Persona.IdentidadDispositivoProps;
+        readonly documentType: import("..").Persona.IdentidadDispositivoProps;
     }, {
         readonly name: "identidadAutenticacion";
         readonly id: "identidad-autenticacion";
-        readonly documentType: import("../types/persona").Persona.IdentidadAutenticacionProps;
+        readonly documentType: import("..").Persona.IdentidadAutenticacionProps;
     }];
 }];

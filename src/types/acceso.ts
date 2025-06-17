@@ -4,13 +4,13 @@ declare namespace Acceso {
   type Dispositivo = {
     numero_serie: string;
     ubicacion?: string;
-    habilitado?: boolean;
+    habilitado: boolean;
     ip?: string;
-    logs?: boolean;
+    logs: boolean;
     heartbeat?: string;
     puerto?: string;
-    stamp?: string;
-    opStamp?: string;
+    stamp: string;
+    opStamp: string;
     pushver?: string;
     language?: string;
     pushOptionsFlag?: string;

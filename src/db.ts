@@ -1,5 +1,5 @@
 // src/db.ts
-import { Models, Databases } from "node-appwrite";
+import { Databases, Models } from "node-appwrite";
 import { definicion } from "./definicion";
 import { Documentos } from "./types";
 
@@ -19,7 +19,7 @@ export interface CollectionMethods<
   T extends Models.Document = Models.Document
 > {
   list: (queries?: string[]) => Promise<Models.DocumentList<T>>;
-  get: (documentId: string) => Promise<T>;
+  get: (documentId: string, queries?: string[]) => Promise<T>;
   create: (
     documentId: string,
     data: object,
