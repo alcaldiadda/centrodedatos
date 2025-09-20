@@ -12,5 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.definicion = void 0;
 var acceso_1 = require("./acceso");
 var asistencia_1 = require("./asistencia");
+var gestor_documental_1 = require("./gestor-documental");
+var historial_1 = require("./historial");
 var persona_1 = require("./persona");
-exports.definicion = __spreadArray(__spreadArray(__spreadArray([], acceso_1.acceso, true), asistencia_1.asistencia, true), persona_1.persona, true);
+exports.definicion = __spreadArray(__spreadArray(__spreadArray(__spreadArray(__spreadArray([], acceso_1.acceso, true), asistencia_1.asistencia, true), persona_1.persona, true), gestor_documental_1.gestorDocumental, true), historial_1.historial, true);

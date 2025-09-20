@@ -66,4 +66,24 @@ export declare const definicion: readonly [{
         readonly id: "identidad-autenticacion";
         readonly documentType: import("..").Persona.IdentidadAutenticacionProps;
     }];
+}, {
+    readonly name: "gestorDocumental";
+    readonly id: "gestorDocumental";
+    readonly collections: readonly [{
+        readonly name: "expediente";
+        readonly id: "expediente";
+        readonly documentType: import("../types").GestorDocumental.ExpedienteProps;
+    }, {
+        readonly name: "documento";
+        readonly id: "documento";
+        readonly documentType: import("../types").GestorDocumental.DocumentoProps;
+    }];
+}, {
+    readonly name: "historial";
+    readonly id: "historial";
+    readonly collections: readonly [{
+        readonly name: "accion";
+        readonly id: "accion";
+        readonly documentType: import("../types/historial").Historial.AccionesProps;
+    }];
 }];
