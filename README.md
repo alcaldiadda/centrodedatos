@@ -12,11 +12,11 @@ yarn add git+https://github.com/alcaldiadda/centro-de-datos.git
 
 ## ⚙️ Inicialización y uso
 
-`centro-de-datos` ofrece dos métodos principales de inicialización, adaptados a diferentes escenarios de su aplicación:
+`centro-de-datos` ofrece dos métodos principales de inicialización, adaptados a diferentes escenarios de tu aplicación:
 
 ### 1. Inicialización Global (CSR / Cliente Fijo)
 
-Utilice la función init() para configurar una instancia global y única de db y func para toda la aplicación. Este método es ideal para:
+Utiliza la función init() para configurar una instancia global y única de db y func para toda la aplicación. Este método es ideal para:
 
 - Aplicaciones de Frontend (CSR), donde el cliente Appwrite se inicializa una vez y utiliza la misma configuración para todas las interacciones.
 
@@ -40,17 +40,17 @@ init({
 const dispositivos = await db.asistencia.dispositivos.list([Query.limit(2)]);
 ```
 
-> Si llama a `init()` en un entorno SSR/Node.js y no proporciona una `apiKey` (es decir, usa `sessionToken` o un cliente público), el SDK emitirá una advertencia. Esto se debe a que la instancia global de `db` y `func` no es adecuada para manejar sesiones de usuario dinámicas por solicitud en SSR, ya que el estado de la sesión es fijo. Para esos casos, use `CentroDeDatos()`
+> Si llamas a `init()` en un entorno SSR/Node.js y no proporcionas una `apiKey` (es decir, usas `sessionToken` o un cliente público), el SDK emitirá una advertencia. Esto se debe a que la instancia global de `db` y `func` no es adecuada para manejar sesiones de usuario dinámicas por solicitud en SSR, ya que el estado de la sesión es fijo. Para esos casos, usa `CentroDeDatos()`
 
 ### 2. Inicialización por Solicitud (SSR / Contextos Dinámicos)
 
-Utilice la función `CentroDeDatos()` para crear nuevas instancias de `db` y `func` por cada solicitud o contexto específico. Este método es esencial para:
+Utiliza la función `CentroDeDatos()` para crear nuevas instancias de `db` y `func` por cada solicitud o contexto específico. Este método es esencial para:
 
 - Next.js Server Components, API Routes, o `getServerSideProps` / `getStaticProps`: Donde cada solicitud puede tener un usuario diferente y, por lo tanto, un `sessionToken` único.
 
-- Cualquier escenario donde necesite aislar el contexto de autenticación del SDK por cada operación o usuario.
+- Cualquier escenario donde necesites aislar el contexto de autenticación del SDK por cada operación o usuario.
 
-`CentroDeDatos()` puede tomar la configuración del cliente Appwrite directamente o instancias de `Databases` y `Functions` ya construidas.
+`CentroDeDatos()` puedes tomar la configuración del cliente Appwrite directamente o instancias de `Databases` y `Functions` ya construidas.
 
 ```ts
 import { Client, Databases, Functions } from "node-appwrite";
