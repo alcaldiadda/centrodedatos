@@ -1,5 +1,11 @@
 import { ID, Query } from "node-appwrite";
-import { Acceso, Asistencia, Persona } from "./types";
+import {
+  Acceso,
+  Asistencia,
+  Persona,
+  GestorDocumental,
+  Historial,
+} from "./types";
 import { JornadaTipo, TipoMarcacion } from "./definicion/asistencia";
 
 export type { AppwriteClientConfig } from "./appwrite-sdk-builder";
@@ -28,6 +34,6 @@ export type {
 
 export type { CustomFunctions } from "./func";
 
-export { Acceso, Asistencia, Persona };
+export { Acceso, Asistencia, Persona, GestorDocumental, Historial };
 
 export { TipoMarcacion, JornadaTipo };

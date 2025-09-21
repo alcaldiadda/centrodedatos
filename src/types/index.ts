@@ -10,4 +10,4 @@ export type Documentos =
   | Persona.TodosProps
   | Historial.TodosProps;
 
-export { Acceso, Asistencia, Persona, GestorDocumental };
+export { Acceso, Asistencia, Persona, GestorDocumental, Historial };

@@ -72,11 +72,11 @@ export declare const definicion: readonly [{
     readonly collections: readonly [{
         readonly name: "expediente";
         readonly id: "expediente";
-        readonly documentType: import("../types").GestorDocumental.ExpedienteProps;
+        readonly documentType: import("..").GestorDocumental.ExpedienteProps;
     }, {
         readonly name: "documento";
         readonly id: "documento";
-        readonly documentType: import("../types").GestorDocumental.DocumentoProps;
+        readonly documentType: import("..").GestorDocumental.DocumentoProps;
     }];
 }, {
     readonly name: "historial";
@@ -84,6 +84,6 @@ export declare const definicion: readonly [{
     readonly collections: readonly [{
         readonly name: "accion";
         readonly id: "accion";
-        readonly documentType: import("../types/historial").Historial.AccionesProps;
+        readonly documentType: import("..").Historial.AccionesProps;
     }];
 }];
