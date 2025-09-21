@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.gestorDocumental = void 0;
 exports.gestorDocumental = [
     {
-        name: "gestor-documental",
+        name: "gestorDocumental",
         id: "gestor-documental",
         collections: [
             {

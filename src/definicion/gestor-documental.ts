@@ -2,7 +2,7 @@ import { GestorDocumental } from "root/types";
 
 export const gestorDocumental = [
   {
-    name: "gestor-documental",
+    name: "gestorDocumental",
     id: "gestor-documental",
     collections: [
       {
