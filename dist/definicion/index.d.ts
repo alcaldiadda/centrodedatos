@@ -67,8 +67,8 @@ export declare const definicion: readonly [{
         readonly documentType: import("..").Persona.IdentidadAutenticacionProps;
     }];
 }, {
-    readonly name: "gestorDocumental";
-    readonly id: "gestorDocumental";
+    readonly name: "gestor-documental";
+    readonly id: "gestor-documental";
     readonly collections: readonly [{
         readonly name: "expediente";
         readonly id: "expediente";

@@ -1,7 +1,7 @@
 import { GestorDocumental } from "root/types";
 export declare const gestorDocumental: readonly [{
-    readonly name: "gestorDocumental";
-    readonly id: "gestorDocumental";
+    readonly name: "gestor-documental";
+    readonly id: "gestor-documental";
     readonly collections: readonly [{
         readonly name: "expediente";
         readonly id: "expediente";
