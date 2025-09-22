@@ -16,6 +16,21 @@ exports.gestorDocumental = [
                 id: "documento",
                 documentType: {},
             },
+            {
+                name: "entidad",
+                id: "entidad",
+                documentType: {},
+            },
+            {
+                name: "relacion",
+                id: "relacion",
+                documentType: {},
+            },
+            {
+                name: "versionDocumento",
+                id: "version-documento",
+                documentType: {},
+            },
         ],
     },
 ];

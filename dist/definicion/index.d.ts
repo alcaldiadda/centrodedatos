@@ -77,6 +77,18 @@ export declare const definicion: readonly [{
         readonly name: "documento";
         readonly id: "documento";
         readonly documentType: import("..").GestorDocumental.DocumentoProps;
+    }, {
+        readonly name: "entidad";
+        readonly id: "entidad";
+        readonly documentType: import("..").GestorDocumental.EntidadProps;
+    }, {
+        readonly name: "relacion";
+        readonly id: "relacion";
+        readonly documentType: import("..").GestorDocumental.RelacionProps;
+    }, {
+        readonly name: "versionDocumento";
+        readonly id: "version-documento";
+        readonly documentType: import("..").GestorDocumental.VersionDocumentoProps;
     }];
 }, {
     readonly name: "historial";

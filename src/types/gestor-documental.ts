@@ -1,6 +1,22 @@
 import { Models } from "node-appwrite";
 
 declare namespace GestorDocumental {
+  type Expediente = {
+    identificador: string;
+    titulo: string;
+    descripcion: string;
+    categoria: string[];
+    etiqueta: string[];
+    estado: string; // abierto, cerrado, archivado
+    responsable: string;
+    origen: string;
+    autor: string;
+    confidencial: boolean;
+    sensible: boolean;
+  };
+
+  type ExpedienteProps = Expediente & Models.Document;
+
   type Documento = {
     identificador: string;
     titulo: string;
@@ -22,6 +38,23 @@ declare namespace GestorDocumental {
 
   type DocumentoProps = Documento & Models.Document;
 
+  type Entidad = {
+    codigo: string;
+    nombre: string;
+    identificador: string;
+    tipo: string[];
+  };
+
+  type EntidadProps = Entidad & Models.Document;
+
+  type Relacion = {
+    idExpediente: string;
+    idEntidad: string;
+    tipoRelacion: string;
+  };
+
+  type RelacionProps = Relacion & Models.Document;
+
   type VersionDocumento = {
     idDocumento: string;
     numero: string; // numero version
@@ -40,23 +73,12 @@ declare namespace GestorDocumental {
 
   type VersionDocumentoProps = VersionDocumento & Models.Document;
 
-  type Expediente = {
-    identificador: string;
-    titulo: string;
-    descripcion: string;
-    categoria: string[];
-    etiqueta: string[];
-    estado: string; // abierto, cerrado, archivado
-    responsable: string;
-    origen: string;
-    autor: string;
-    confidencial: boolean;
-    sensible: boolean;
-  };
-
-  type ExpedienteProps = Expediente & Models.Document;
-
-  type TodosProps = DocumentoProps | VersionDocumentoProps | ExpedienteProps;
+  type TodosProps =
+    | ExpedienteProps
+    | DocumentoProps
+    | EntidadProps
+    | RelacionProps
+    | VersionDocumentoProps;
 }
 
 export { GestorDocumental };
