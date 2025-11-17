@@ -27,8 +27,8 @@ export { ID, Query };
 
 export type {
   AppwriteDBInterface,
-  CollectionConfig,
-  CollectionMethods,
+  TableConfig as CollectionConfig,
+  TablesMethods as CollectionMethods,
   DatabaseConfig,
 } from "./db";
 

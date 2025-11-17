@@ -92,7 +92,7 @@ export const init = (config: AppwriteClientConfig): void => {
   }
 
   const {
-    databases,
+    tablesDb: databases,
     functions,
     account,
     users,

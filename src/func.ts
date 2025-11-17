@@ -1,13 +1,13 @@
 import { ExecutionMethod, Functions, Models } from "node-appwrite";
 
-type FunctionParams = (
-  datos: Record<string, any>,
-  async?: boolean,
-  xpath?: string,
-  method?: ExecutionMethod,
-  headers?: object,
-  scheduledAt?: string
-) => Promise<Models.Execution>;
+type FunctionParams = (props: {
+  datos: Record<string, any>;
+  async?: boolean;
+  xpath?: string;
+  method?: ExecutionMethod;
+  headers?: object;
+  scheduledAt?: string;
+}) => Promise<Models.Execution>;
 
 const funciones = [
   {
@@ -40,23 +40,19 @@ export type CustomFunctions = {
  */
 export function createFunc(appwriteFunciones: Functions): CustomFunctions {
   const funcInstance = funciones.reduce((acc, { id, nombre }) => {
-    acc[nombre] = (
-      datos: Record<string, any>,
-      async?: boolean,
-      xpath?: string,
-      method?: ExecutionMethod,
-      headers?: object,
-      scheduledAt?: string
-    ) => {
-      return appwriteFunciones.createExecution(
-        id,
-        JSON.stringify(datos),
-        async,
-        xpath,
-        method,
-        headers,
-        scheduledAt
-      );
+    acc[nombre] = (props: {
+      datos: Record<string, any>;
+      async?: boolean;
+      xpath?: string;
+      method?: ExecutionMethod;
+      headers?: object;
+      scheduledAt?: string;
+    }) => {
+      return appwriteFunciones.createExecution({
+        ...props,
+        functionId: id,
+        body: JSON.stringify(props.datos),
+      });
     };
     return acc;
   }, {} as CustomFunctions);

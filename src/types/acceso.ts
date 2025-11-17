@@ -23,7 +23,7 @@ declare namespace Acceso {
     cantidad_registros?: string;
   };
 
-  type DispositivoProps = Dispositivo & Models.Document;
+  type DispositivoProps = Dispositivo & Models.Row;
 
   type DispositivoLog = {
     numero_serie: string;
@@ -37,7 +37,7 @@ declare namespace Acceso {
     paramtro4?: string;
   };
 
-  type DispositivoLogProps = DispositivoLog & Models.Document;
+  type DispositivoLogProps = DispositivoLog & Models.Row;
 
   type DispositivoComando = {
     numero_serie: string;
@@ -45,7 +45,7 @@ declare namespace Acceso {
     reintentos: number;
   };
 
-  type DispositivoComandoProps = DispositivoComando & Models.Document;
+  type DispositivoComandoProps = DispositivoComando & Models.Row;
 
   type DispositivoRespuesta = {
     numero_serie: string;
@@ -55,7 +55,7 @@ declare namespace Acceso {
     codigo_respuesta: number;
   };
 
-  type DispositivoRespuestaProps = DispositivoRespuesta & Models.Document;
+  type DispositivoRespuestaProps = DispositivoRespuesta & Models.Row;
 
   type TodosProps =
     | DispositivoProps

@@ -4,7 +4,7 @@ export const asistencia = [
   {
     name: "asistencia",
     id: "asistencia",
-    collections: [
+    tables: [
       {
         name: "marcacion",
         id: "marcacion",

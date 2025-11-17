@@ -4,7 +4,7 @@ import { Persona } from "./persona";
 import { GestorDocumental } from "./gestor-documental";
 import { Historial } from "./historial";
 
-export type Documentos =
+export type Filas =
   | Acceso.TodosProps
   | Asistencia.TodosProps
   | Persona.TodosProps

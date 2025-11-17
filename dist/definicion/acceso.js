@@ -5,7 +5,7 @@ exports.acceso = [
     {
         name: "acceso",
         id: "acceso",
-        collections: [
+        tables: [
             {
                 name: "dispositivo",
                 id: "dispositivo",

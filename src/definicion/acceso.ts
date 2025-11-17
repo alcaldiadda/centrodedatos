@@ -4,7 +4,7 @@ export const acceso = [
   {
     name: "acceso",
     id: "acceso",
-    collections: [
+    tables: [
       {
         name: "dispositivo",
         id: "dispositivo",

@@ -2,7 +2,7 @@ import { GestorDocumental } from "root/types";
 export declare const gestorDocumental: readonly [{
     readonly name: "gestorDocumental";
     readonly id: "gestor-documental";
-    readonly collections: readonly [{
+    readonly tables: readonly [{
         readonly name: "expediente";
         readonly id: "expediente";
         readonly documentType: GestorDocumental.ExpedienteProps;

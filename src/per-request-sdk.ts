@@ -62,7 +62,7 @@ export function CentroDeDatos(
     );
   }
 
-  const dbInstance = createDb(serviceInstances.databases);
+  const dbInstance = createDb(serviceInstances.tablesDb);
   const funcInstance = createFunc(serviceInstances.functions);
 
   return {

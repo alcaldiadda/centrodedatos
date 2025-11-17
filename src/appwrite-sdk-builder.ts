@@ -1,6 +1,5 @@
 import {
   Client,
-  Databases,
   Functions,
   Account,
   Users,
@@ -9,6 +8,7 @@ import {
   Messaging,
   Storage,
   Teams,
+  TablesDB,
 } from "node-appwrite";
 
 /**
@@ -28,7 +28,7 @@ export interface AppwriteClientConfig {
  */
 export interface AppwriteServiceInstances {
   client: Client;
-  databases: Databases;
+  tablesDb: TablesDB;
   functions: Functions;
   account: Account;
   users: Users;
@@ -59,7 +59,7 @@ export function buildAppwriteClientInstances(
     client.setSession(config.sessionToken);
   }
 
-  const databases = new Databases(client);
+  const tablesDb = new TablesDB(client);
   const functions = new Functions(client);
   const account = new Account(client);
   const users = new Users(client);
@@ -71,7 +71,7 @@ export function buildAppwriteClientInstances(
 
   return {
     client,
-    databases,
+    tablesDb,
     functions,
     account,
     users,

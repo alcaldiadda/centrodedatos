@@ -21,7 +21,7 @@ function CentroDeDatos(arg) {
         // Si se proporcionó solo la configuración, construir todas las instancias
         serviceInstances = (0, appwrite_sdk_builder_1.buildAppwriteClientInstances)(arg);
     }
-    var dbInstance = (0, db_1.createDb)(serviceInstances.databases);
+    var dbInstance = (0, db_1.createDb)(serviceInstances.tablesDb);
     var funcInstance = (0, func_1.createFunc)(serviceInstances.functions);
     return {
         db: dbInstance,

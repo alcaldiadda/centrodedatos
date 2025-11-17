@@ -1,5 +1,12 @@
 import { ExecutionMethod, Functions, Models } from "node-appwrite";
-type FunctionParams = (datos: Record<string, any>, async?: boolean, xpath?: string, method?: ExecutionMethod, headers?: object, scheduledAt?: string) => Promise<Models.Execution>;
+type FunctionParams = (props: {
+    datos: Record<string, any>;
+    async?: boolean;
+    xpath?: string;
+    method?: ExecutionMethod;
+    headers?: object;
+    scheduledAt?: string;
+}) => Promise<Models.Execution>;
 declare const funciones: readonly [{
     readonly id: "registra-marcacion";
     readonly nombre: "registraMarcacion";

@@ -10,7 +10,7 @@ declare namespace Historial {
         usuario: string;
         ip: string;
     };
-    type AccionesProps = Accion & Models.Document;
+    type AccionesProps = Accion & Models.Row;
     type TodosProps = AccionesProps;
 }
 export { Historial };

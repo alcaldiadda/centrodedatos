@@ -2,7 +2,7 @@ import { Acceso } from "root/types/acceso";
 export declare const acceso: readonly [{
     readonly name: "acceso";
     readonly id: "acceso";
-    readonly collections: readonly [{
+    readonly tables: readonly [{
         readonly name: "dispositivo";
         readonly id: "dispositivo";
         readonly documentType: Acceso.DispositivoProps;

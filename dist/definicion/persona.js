@@ -5,7 +5,7 @@ exports.persona = [
     {
         name: "persona",
         id: "persona",
-        collections: [
+        tables: [
             {
                 name: "identidad",
                 id: "identidad",

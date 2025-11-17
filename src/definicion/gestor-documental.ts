@@ -4,7 +4,7 @@ export const gestorDocumental = [
   {
     name: "gestorDocumental",
     id: "gestor-documental",
-    collections: [
+    tables: [
       {
         name: "expediente",
         id: "expediente",

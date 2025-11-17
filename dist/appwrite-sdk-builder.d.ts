@@ -1,4 +1,4 @@
-import { Client, Databases, Functions, Account, Users, Avatars, Locale, Messaging, Storage, Teams } from "node-appwrite";
+import { Client, Functions, Account, Users, Avatars, Locale, Messaging, Storage, Teams, TablesDB } from "node-appwrite";
 /**
  * Opciones de configuración para construir un cliente Appwrite.
  * Puede ser con apiKey para administradores/servicios o con sessionToken para usuarios.
@@ -15,7 +15,7 @@ export interface AppwriteClientConfig {
  */
 export interface AppwriteServiceInstances {
     client: Client;
-    databases: Databases;
+    tablesDb: TablesDB;
     functions: Functions;
     account: Account;
     users: Users;

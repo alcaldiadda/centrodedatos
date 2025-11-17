@@ -10,6 +10,7 @@ function initAppwriteServices(endpoint, projectId, apiKey) {
     var client = new node_appwrite_1.Client();
     client.setEndpoint(endpoint).setProject(projectId).setKey(apiKey);
     var databases = new node_appwrite_1.Databases(client);
+    var tablesDb = new node_appwrite_1.TablesDB(client);
     var functions = new node_appwrite_1.Functions(client);
-    return { client: client, databases: databases, functions: functions };
+    return { client: client, databases: databases, tablesDb: tablesDb, functions: functions };
 }

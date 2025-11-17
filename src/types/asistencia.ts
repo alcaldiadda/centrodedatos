@@ -15,7 +15,7 @@ declare namespace Asistencia {
     identidad_pin: string;
   };
 
-  type MarcacionProps = MarcacionBase & Models.Document;
+  type MarcacionProps = MarcacionBase & Models.Row;
 
   type MarcacionBruta = Pick<
     MarcacionBase,
@@ -48,7 +48,7 @@ declare namespace Asistencia {
     colacion_en_rango: boolean | null;
   };
 
-  type MarcacionDiariaProps = MarcacionDiaria & Models.Document;
+  type MarcacionDiariaProps = MarcacionDiaria & Models.Row;
 
   type MarcacionMensual = {
     id_usuario: string;
@@ -64,7 +64,7 @@ declare namespace Asistencia {
     actualizado_por?: string;
   };
 
-  type MarcacionMensualProps = MarcacionMensual & Models.Document;
+  type MarcacionMensualProps = MarcacionMensual & Models.Row;
 
   type RegistraMarcacion = {
     id_dispositivo?: string;
@@ -85,7 +85,7 @@ declare namespace Asistencia {
     folio_decreto?: string;
   };
 
-  type AusenciaProps = Ausencia & Models.Document;
+  type AusenciaProps = Ausencia & Models.Row;
 
   type Feriado = {
     fecha: string;
@@ -94,7 +94,7 @@ declare namespace Asistencia {
     actualizado_el: string;
   };
 
-  type FeriadoProps = Feriado & Models.Document;
+  type FeriadoProps = Feriado & Models.Row;
 
   type Jornada = {
     dia_semana?: string;
@@ -109,7 +109,7 @@ declare namespace Asistencia {
     actualizado_el: string;
   };
 
-  type JornadaProps = Jornada & Models.Document;
+  type JornadaProps = Jornada & Models.Row;
 
   type TodosProps =
     | MarcacionProps

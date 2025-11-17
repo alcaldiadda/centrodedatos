@@ -13,7 +13,7 @@ declare namespace GestorDocumental {
         confidencial: boolean;
         sensible: boolean;
     };
-    type ExpedienteProps = Expediente & Models.Document;
+    type ExpedienteProps = Expediente & Models.Row;
     type Documento = {
         identificador: string;
         titulo: string;
@@ -32,20 +32,20 @@ declare namespace GestorDocumental {
         sensible: boolean;
         version: string;
     };
-    type DocumentoProps = Documento & Models.Document;
+    type DocumentoProps = Documento & Models.Row;
     type Entidad = {
         codigo: string;
         nombre: string;
         identificador: string;
         tipo: string[];
     };
-    type EntidadProps = Entidad & Models.Document;
+    type EntidadProps = Entidad & Models.Row;
     type Relacion = {
         idExpediente: string;
         idEntidad: string;
         tipoRelacion: string;
     };
-    type RelacionProps = Relacion & Models.Document;
+    type RelacionProps = Relacion & Models.Row;
     type VersionDocumento = {
         idDocumento: string;
         numero: string;
@@ -61,7 +61,7 @@ declare namespace GestorDocumental {
         tamano: string;
         firmaElectronica: string;
     };
-    type VersionDocumentoProps = VersionDocumento & Models.Document;
+    type VersionDocumentoProps = VersionDocumento & Models.Row;
     type TodosProps = ExpedienteProps | DocumentoProps | EntidadProps | RelacionProps | VersionDocumentoProps;
 }
 export { GestorDocumental };

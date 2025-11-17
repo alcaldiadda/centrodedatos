@@ -4,7 +4,7 @@ export const historial = [
   {
     name: "historial",
     id: "historial",
-    collections: [
+    tables: [
       {
         name: "accion",
         id: "accion",

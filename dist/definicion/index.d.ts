@@ -1,7 +1,7 @@
 export declare const definicion: readonly [{
     readonly name: "acceso";
     readonly id: "acceso";
-    readonly collections: readonly [{
+    readonly tables: readonly [{
         readonly name: "dispositivo";
         readonly id: "dispositivo";
         readonly documentType: import("..").Acceso.DispositivoProps;
@@ -21,7 +21,7 @@ export declare const definicion: readonly [{
 }, {
     readonly name: "asistencia";
     readonly id: "asistencia";
-    readonly collections: readonly [{
+    readonly tables: readonly [{
         readonly name: "marcacion";
         readonly id: "marcacion";
         readonly documentType: import("..").Asistencia.MarcacionProps;
@@ -49,7 +49,7 @@ export declare const definicion: readonly [{
 }, {
     readonly name: "persona";
     readonly id: "persona";
-    readonly collections: readonly [{
+    readonly tables: readonly [{
         readonly name: "identidad";
         readonly id: "identidad";
         readonly documentType: import("..").Persona.IdentidadProps;
@@ -69,7 +69,7 @@ export declare const definicion: readonly [{
 }, {
     readonly name: "gestorDocumental";
     readonly id: "gestor-documental";
-    readonly collections: readonly [{
+    readonly tables: readonly [{
         readonly name: "expediente";
         readonly id: "expediente";
         readonly documentType: import("..").GestorDocumental.ExpedienteProps;
@@ -93,7 +93,7 @@ export declare const definicion: readonly [{
 }, {
     readonly name: "historial";
     readonly id: "historial";
-    readonly collections: readonly [{
+    readonly tables: readonly [{
         readonly name: "accion";
         readonly id: "accion";
         readonly documentType: import("..").Historial.AccionesProps;

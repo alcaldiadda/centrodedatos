@@ -19,7 +19,7 @@ function buildAppwriteClientInstances(config) {
     else if (config.sessionToken) {
         client.setSession(config.sessionToken);
     }
-    var databases = new node_appwrite_1.Databases(client);
+    var tablesDb = new node_appwrite_1.TablesDB(client);
     var functions = new node_appwrite_1.Functions(client);
     var account = new node_appwrite_1.Account(client);
     var users = new node_appwrite_1.Users(client);
@@ -30,7 +30,7 @@ function buildAppwriteClientInstances(config) {
     var teams = new node_appwrite_1.Teams(client);
     return {
         client: client,
-        databases: databases,
+        tablesDb: tablesDb,
         functions: functions,
         account: account,
         users: users,

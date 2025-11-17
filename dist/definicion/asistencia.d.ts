@@ -2,7 +2,7 @@ import { Asistencia } from "root/types/asistencia";
 export declare const asistencia: readonly [{
     readonly name: "asistencia";
     readonly id: "asistencia";
-    readonly collections: readonly [{
+    readonly tables: readonly [{
         readonly name: "marcacion";
         readonly id: "marcacion";
         readonly documentType: Asistencia.MarcacionProps;
