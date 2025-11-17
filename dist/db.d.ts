@@ -4,14 +4,14 @@ import { Filas } from "./types";
 export interface TableConfig {
     readonly name: string;
     readonly id: string;
-    readonly rowType?: Models.DefaultRow | Filas;
+    readonly rowType?: Models.Row | Filas;
 }
 export interface DatabaseConfig {
     readonly name: string;
     readonly id: string;
     readonly tables: readonly TableConfig[];
 }
-export interface TablesMethods<T extends Models.DefaultRow = Models.DefaultRow> {
+export interface TablesMethods<T extends Models.Row = Models.Row> {
     createRow: (props: {
         rowId: string;
         data: Record<string, any>;
@@ -100,7 +100,7 @@ export type AppwriteDBInterface<T extends readonly DatabaseConfig[]> = {
     [DBConfig in T[number] as DBConfig["name"]]: {
         [ColConfig in DBConfig["tables"][number] as ColConfig["name"]]: ColConfig extends {
             documentType: infer D;
-        } ? D extends Models.DefaultRow ? TablesMethods<D> : TablesMethods<Models.DefaultRow> : TablesMethods<Models.DefaultRow>;
+        } ? D extends Models.Row ? TablesMethods<D> : TablesMethods<Models.Row> : TablesMethods<Models.Row>;
     };
 };
 /**

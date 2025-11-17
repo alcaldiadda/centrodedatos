@@ -6,7 +6,7 @@ import { Filas } from "./types";
 export interface TableConfig {
   readonly name: string;
   readonly id: string;
-  readonly rowType?: Models.DefaultRow | Filas;
+  readonly rowType?: Models.Row | Filas;
 }
 
 export interface DatabaseConfig {
@@ -15,9 +15,7 @@ export interface DatabaseConfig {
   readonly tables: readonly TableConfig[];
 }
 
-export interface TablesMethods<
-  T extends Models.DefaultRow = Models.DefaultRow
-> {
+export interface TablesMethods<T extends Models.Row = Models.Row> {
   createRow: (props: {
     rowId: string;
     data: Record<string, any>;
@@ -104,10 +102,10 @@ export type AppwriteDBInterface<T extends readonly DatabaseConfig[]> = {
       // usa ese tipo para TablesMethods; de lo contrario, usa Models.Document como fallback.
       documentType: infer D;
     }
-      ? D extends Models.DefaultRow
+      ? D extends Models.Row
         ? TablesMethods<D>
-        : TablesMethods<Models.DefaultRow>
-      : TablesMethods<Models.DefaultRow>;
+        : TablesMethods<Models.Row>
+      : TablesMethods<Models.Row>;
   };
 };
 
