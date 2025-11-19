@@ -50,7 +50,7 @@ declare namespace Asistencia {
     };
     type MarcacionMensualProps = MarcacionMensual & Models.Row;
     type RegistraMarcacion = {
-        id_dispositivo?: string;
+        id_dispositivo: string;
         identidad_pin?: string;
         $id?: string;
         pid?: string;
