@@ -5,13 +5,11 @@ declare namespace Asistencia {
         id_usuario?: string;
         fecha: string;
         tipo: string;
-        creado_el: string;
-        actualizado_el: string;
         agregado_por?: string;
         actualizado_por?: string;
         id_jornada?: string;
         id_dispositivo: string;
-        identidad_pin: string;
+        identidad_pin?: string;
     };
     type MarcacionProps = MarcacionBase & Models.Row;
     type MarcacionBruta = Pick<MarcacionBase, "id_usuario" | "identidad_pin" | "fecha">;
