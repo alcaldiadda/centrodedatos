@@ -19,7 +19,7 @@ export interface TablesMethods<T extends Models.Row = Models.Row> {
   createRow: (props: {
     rowId: string;
     data: Record<string, any>;
-    permissions: string[];
+    permissions?: string[];
     transactionId?: string;
   }) => Promise<T>;
   createRows: (props: {
@@ -40,7 +40,7 @@ export interface TablesMethods<T extends Models.Row = Models.Row> {
   updateRow: (props: {
     rowId: string;
     data: Record<string, any>;
-    permissions: string[];
+    permissions?: string[];
     transactionId?: string;
   }) => Promise<T>;
   updateRows: (props: {
@@ -51,7 +51,7 @@ export interface TablesMethods<T extends Models.Row = Models.Row> {
   upsertRow: (props: {
     rowId: string;
     data: Record<string, any>;
-    permissions: string[];
+    permissions?: string[];
     transactionId?: string;
   }) => Promise<T>;
   upsertRows: (props: {
