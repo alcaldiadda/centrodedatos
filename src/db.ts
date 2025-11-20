@@ -128,7 +128,7 @@ export function createDb(
         createRow: (props: {
           rowId: string;
           data: Record<string, any>;
-          permissions: string[];
+          permissions?: string[];
           transactionId?: string;
         }) =>
           appwriteDatabases.createRow({
@@ -161,7 +161,7 @@ export function createDb(
         updateRow: (props: {
           rowId: string;
           data: Record<string, any>;
-          permissions: string[];
+          permissions?: string[];
           transactionId?: string;
         }) =>
           appwriteDatabases.updateRow({
@@ -182,7 +182,7 @@ export function createDb(
         upsertRow: (props: {
           rowId: string;
           data: Record<string, any>;
-          permissions: string[];
+          permissions?: string[];
           transactionId?: string;
         }) =>
           appwriteDatabases.upsertRow({
