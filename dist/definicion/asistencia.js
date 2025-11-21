@@ -18,7 +18,7 @@ exports.asistencia = [
             },
             {
                 name: "marcacionMensual",
-                id: "marcacion-Mensual",
+                id: "marcacion-mensual",
                 documentType: {},
             },
             {

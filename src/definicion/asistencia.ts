@@ -17,7 +17,7 @@ export const asistencia = [
       },
       {
         name: "marcacionMensual",
-        id: "marcacion-Mensual",
+        id: "marcacion-mensual",
         documentType: {} as Asistencia.MarcacionMensualProps,
       },
       {
