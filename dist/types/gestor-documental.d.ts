@@ -18,9 +18,7 @@ declare namespace GestorDocumental {
         identificador: string;
         titulo: string;
         descripcion: string;
-        tipoDocumento: string;
-        fechaCreacion: string;
-        fechaModificacion: string;
+        tipo_documento: string;
         estado: string;
         origen: string;
         autor: string;

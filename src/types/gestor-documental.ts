@@ -21,9 +21,7 @@ declare namespace GestorDocumental {
     identificador: string;
     titulo: string;
     descripcion: string;
-    tipoDocumento: string; // oficio, decreto, memo
-    fechaCreacion: string;
-    fechaModificacion: string;
+    tipo_documento: string; // oficio, decreto, memo
     estado: string; //borrador, firmado, aprobado, rechazado
     origen: string;
     autor: string;
