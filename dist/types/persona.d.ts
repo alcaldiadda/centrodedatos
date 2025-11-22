@@ -16,8 +16,6 @@ declare namespace Persona {
         direcion?: string;
         comuna?: string;
         ciudad?: string;
-        creado_el: string;
-        actualizado_el: string;
         creado_por: string;
         actualizado_por: string;
     };

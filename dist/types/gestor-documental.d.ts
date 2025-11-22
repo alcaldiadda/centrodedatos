@@ -41,25 +41,25 @@ declare namespace GestorDocumental {
     };
     type EntidadProps = Entidad & Models.Row;
     type Relacion = {
-        idExpediente: string;
-        idEntidad: string;
-        tipoRelacion: string;
+        id_expediente: string;
+        id_entidad: string;
+        tipo_relacion: string;
     };
     type RelacionProps = Relacion & Models.Row;
     type VersionDocumento = {
-        idDocumento: string;
+        id_documento: string;
         numero: string;
-        usuario: string;
+        identidad: string;
         descripcion: string;
         fecha: string;
         url: string;
         hash: string;
         formato: string;
-        fechaCaptura?: string;
-        resolucionCaptura?: string;
+        fecha_captura?: string;
+        resolucion_captura?: string;
         paginas: string;
         tamano: string;
-        firmaElectronica: string;
+        firma_electronica: string;
     };
     type VersionDocumentoProps = VersionDocumento & Models.Row;
     type TodosProps = ExpedienteProps | DocumentoProps | EntidadProps | RelacionProps | VersionDocumentoProps;
