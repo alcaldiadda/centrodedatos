@@ -3,12 +3,12 @@ import { Models } from "node-appwrite";
 declare namespace Historial {
   type Accion = {
     entidad: string;
-    idEntidad: string;
+    id_entidad: string;
     accion: string; // crear_expediente, editar_metadatos, agregar_documento, etc
-    informacionAnterior: string;
+    informacion_anterior: string;
     informacionNueva: string[];
     fecha: string;
-    usuario: string;
+    id_identidad: string;
     ip: string;
   };
 

@@ -3,7 +3,7 @@ import { Models } from "node-appwrite";
 
 declare namespace Asistencia {
   type MarcacionBase = {
-    id_usuario?: string;
+    id_identidad?: string;
     fecha: string;
     tipo: string;
     agregado_por?: string;
@@ -17,16 +17,16 @@ declare namespace Asistencia {
 
   type MarcacionBruta = Pick<
     MarcacionBase,
-    "id_usuario" | "identidad_pin" | "fecha"
+    "id_identidad" | "identidad_pin" | "fecha"
   >;
 
   export type Marcacion = Pick<
     MarcacionBase,
-    "id_usuario" | "id_jornada" | "fecha" | "tipo"
+    "id_identidad" | "id_jornada" | "fecha" | "tipo"
   >;
 
   type MarcacionDiaria = {
-    id_usuario: string;
+    id_identidad: string;
     fecha: string;
     id_jornada?: string;
     hora_entrada: string;
@@ -49,7 +49,7 @@ declare namespace Asistencia {
   type MarcacionDiariaProps = MarcacionDiaria & Models.Row;
 
   type MarcacionMensual = {
-    id_usuario: string;
+    id_identidad: string;
     fecha: string;
     horas_trabajadas: string;
     atraso: string;
@@ -73,7 +73,7 @@ declare namespace Asistencia {
   };
 
   type Ausencia = {
-    id_usuario: string;
+    id_identidad: string;
     tipo: string;
     id_reemplazante?: string;
     agregado_por?: string;
@@ -101,7 +101,7 @@ declare namespace Asistencia {
     colacion_inicio?: string;
     colacion_fin?: string;
     fecha?: string;
-    id_usuario?: string;
+    id_identidad?: string;
     tipo: typeof JornadaTipo;
     creado_el: string;
     actualizado_el: string;

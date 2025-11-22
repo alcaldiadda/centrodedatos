@@ -2,7 +2,7 @@ import { JornadaTipo, TipoMarcacion } from "root/definicion/asistencia";
 import { Models } from "node-appwrite";
 declare namespace Asistencia {
     type MarcacionBase = {
-        id_usuario?: string;
+        id_identidad?: string;
         fecha: string;
         tipo: string;
         agregado_por?: string;
@@ -12,10 +12,10 @@ declare namespace Asistencia {
         identidad_pin?: string;
     };
     type MarcacionProps = MarcacionBase & Models.Row;
-    type MarcacionBruta = Pick<MarcacionBase, "id_usuario" | "identidad_pin" | "fecha">;
-    type Marcacion = Pick<MarcacionBase, "id_usuario" | "id_jornada" | "fecha" | "tipo">;
+    type MarcacionBruta = Pick<MarcacionBase, "id_identidad" | "identidad_pin" | "fecha">;
+    type Marcacion = Pick<MarcacionBase, "id_identidad" | "id_jornada" | "fecha" | "tipo">;
     type MarcacionDiaria = {
-        id_usuario: string;
+        id_identidad: string;
         fecha: string;
         id_jornada?: string;
         hora_entrada: string;
@@ -36,7 +36,7 @@ declare namespace Asistencia {
     };
     type MarcacionDiariaProps = MarcacionDiaria & Models.Row;
     type MarcacionMensual = {
-        id_usuario: string;
+        id_identidad: string;
         fecha: string;
         horas_trabajadas: string;
         atraso: string;
@@ -57,7 +57,7 @@ declare namespace Asistencia {
         fecha_string: string;
     };
     type Ausencia = {
-        id_usuario: string;
+        id_identidad: string;
         tipo: string;
         id_reemplazante?: string;
         agregado_por?: string;
@@ -81,7 +81,7 @@ declare namespace Asistencia {
         colacion_inicio?: string;
         colacion_fin?: string;
         fecha?: string;
-        id_usuario?: string;
+        id_identidad?: string;
         tipo: typeof JornadaTipo;
         creado_el: string;
         actualizado_el: string;
