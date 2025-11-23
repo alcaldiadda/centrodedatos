@@ -15,6 +15,10 @@ export declare const asistencia: readonly [{
         readonly id: "marcacion-mensual";
         readonly documentType: Asistencia.MarcacionMensualProps;
     }, {
+        readonly name: "presenciaDiaria";
+        readonly id: "presencia-diaria";
+        readonly documentType: Asistencia.PresenciaDiariaProps;
+    }, {
         readonly name: "ausencia";
         readonly id: "ausencia";
         readonly documentType: Asistencia.AusenciaProps;

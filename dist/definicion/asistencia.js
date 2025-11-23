@@ -22,6 +22,11 @@ exports.asistencia = [
                 documentType: {},
             },
             {
+                name: "presenciaDiaria",
+                id: "presencia-diaria",
+                documentType: {},
+            },
+            {
                 name: "ausencia",
                 id: "ausencia",
                 documentType: {},

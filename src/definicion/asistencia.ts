@@ -21,6 +21,11 @@ export const asistencia = [
         documentType: {} as Asistencia.MarcacionMensualProps,
       },
       {
+        name: "presenciaDiaria",
+        id: "presencia-diaria",
+        documentType: {} as Asistencia.PresenciaDiariaProps,
+      },
+      {
         name: "ausencia",
         id: "ausencia",
         documentType: {} as Asistencia.AusenciaProps,

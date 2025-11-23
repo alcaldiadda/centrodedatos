@@ -72,6 +72,13 @@ declare namespace Asistencia {
     fecha_string: string;
   };
 
+  type PresenciaDiaria = {
+    id_identidad: string[];
+    fecha: string;
+  };
+
+  type PresenciaDiariaProps = PresenciaDiaria & Models.Row;
+
   type Ausencia = {
     id_identidad: string;
     tipo: string;
