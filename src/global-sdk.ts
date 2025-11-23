@@ -92,7 +92,7 @@ export const init = (config: AppwriteClientConfig): void => {
   }
 
   const {
-    tablesDb: databases,
+    tablesDb,
     functions,
     account,
     users,
@@ -104,7 +104,7 @@ export const init = (config: AppwriteClientConfig): void => {
   } = buildAppwriteClientInstances(config);
 
   _actualGlobalSDKInstance = {
-    db: createDb(databases),
+    db: createDb(tablesDb),
     func: createFunc(functions),
     account: account,
     users: users,

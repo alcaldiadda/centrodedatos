@@ -50,9 +50,9 @@ var init = function (config) {
             "será el mismo para todas las solicitudes. Para sesiones de usuario dinámicas por solicitud, " +
             "usa `CentroDeDatos({ endpoint, projectId, sessionToken })` en el contexto de cada solicitud.");
     }
-    var _a = (0, appwrite_sdk_builder_1.buildAppwriteClientInstances)(config), databases = _a.tablesDb, functions = _a.functions, account = _a.account, users = _a.users, avatars = _a.avatars, locale = _a.locale, messaging = _a.messaging, storage = _a.storage, teams = _a.teams;
+    var _a = (0, appwrite_sdk_builder_1.buildAppwriteClientInstances)(config), tablesDb = _a.tablesDb, functions = _a.functions, account = _a.account, users = _a.users, avatars = _a.avatars, locale = _a.locale, messaging = _a.messaging, storage = _a.storage, teams = _a.teams;
     _actualGlobalSDKInstance = {
-        db: (0, db_1.createDb)(databases),
+        db: (0, db_1.createDb)(tablesDb),
         func: (0, func_1.createFunc)(functions),
         account: account,
         users: users,

@@ -78,7 +78,7 @@ export interface TablesMethods<T extends Models.Row = Models.Row> {
         operations: object[];
         transactionId: string;
     }) => Promise<Models.Transaction>;
-    createTransaction: (props: {
+    createTransaction: (props?: {
         ttl?: number;
     }) => Promise<Models.Transaction>;
     getTransaction: (props: {

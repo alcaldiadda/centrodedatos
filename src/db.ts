@@ -81,7 +81,7 @@ export interface TablesMethods<T extends Models.Row = Models.Row> {
     operations: object[];
     transactionId: string;
   }) => Promise<Models.Transaction>;
-  createTransaction: (props: { ttl?: number }) => Promise<Models.Transaction>;
+  createTransaction: (props?: { ttl?: number }) => Promise<Models.Transaction>;
   getTransaction: (props: {
     transactionId: string;
   }) => Promise<Models.Transaction>;
@@ -236,7 +236,7 @@ export function createDb(
           operations: object[];
           transactionId: string;
         }) => appwriteDatabases.createOperations(props),
-        createTransaction: (props: { ttl?: number }) =>
+        createTransaction: (props?: { ttl?: number }) =>
           appwriteDatabases.createTransaction(props),
         getTransaction: (props: { transactionId: string }) =>
           appwriteDatabases.getTransaction(props),
