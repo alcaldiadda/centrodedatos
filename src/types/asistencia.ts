@@ -6,11 +6,11 @@ declare namespace Asistencia {
     id_identidad?: string;
     fecha: string;
     tipo: string;
-    agregado_por?: string;
-    actualizado_por?: string;
     id_jornada?: string;
     id_dispositivo: string;
     identidad_pin?: string;
+    agregado_por?: string | null;
+    actualizado_por?: string | null;
   };
 
   type MarcacionProps = MarcacionBase & Models.Row;
@@ -41,9 +41,9 @@ declare namespace Asistencia {
     colacion_no_devuelta: string;
     horas_extras_25: string;
     horas_extras_50: string;
-    agregado_por?: string;
-    actualizado_por?: string;
     colacion_en_rango: boolean | null;
+    agregado_por?: string | null;
+    actualizado_por?: string | null;
   };
 
   type MarcacionDiariaProps = MarcacionDiaria & Models.Row;
@@ -58,8 +58,8 @@ declare namespace Asistencia {
     horas_extras_50: string;
     colacion_no_devuelta: string;
     no_marco_colacion: number;
-    agregado_por?: string;
-    actualizado_por?: string;
+    agregado_por?: string | null;
+    actualizado_por?: string | null;
   };
 
   type MarcacionMensualProps = MarcacionMensual & Models.Row;
@@ -83,11 +83,11 @@ declare namespace Asistencia {
     id_identidad: string;
     tipo: string;
     id_reemplazante?: string;
-    agregado_por?: string;
-    actualizado_por?: string;
     fecha_inicio: string;
     fecha_termino: string;
     folio_decreto?: string;
+    agregado_por?: string | null;
+    actualizado_por?: string | null;
   };
 
   type AusenciaProps = Ausencia & Models.Row;
@@ -95,8 +95,6 @@ declare namespace Asistencia {
   type Feriado = {
     fecha: string;
     descripcion?: string;
-    creado_el: string;
-    actualizado_el: string;
   };
 
   type FeriadoProps = Feriado & Models.Row;
@@ -110,8 +108,6 @@ declare namespace Asistencia {
     fecha?: string;
     id_identidad?: string;
     tipo: typeof JornadaTipo;
-    creado_el: string;
-    actualizado_el: string;
   };
 
   type JornadaProps = Jornada & Models.Row;

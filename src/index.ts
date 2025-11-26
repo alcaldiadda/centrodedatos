@@ -6,7 +6,11 @@ import {
   GestorDocumental,
   Historial,
 } from "./types";
-import { JornadaTipo, TipoMarcacion } from "./definicion/asistencia";
+import {
+  JornadaTipo,
+  TipoMarcacion,
+  TipoAusencia,
+} from "./definicion/asistencia";
 
 export type { AppwriteClientConfig } from "./appwrite-sdk-builder";
 export {
@@ -36,4 +40,4 @@ export type { CustomFunctions } from "./func";
 
 export { Acceso, Asistencia, Persona, GestorDocumental, Historial };
 
-export { TipoMarcacion, JornadaTipo };
+export { TipoMarcacion, JornadaTipo, TipoAusencia };
