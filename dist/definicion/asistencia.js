@@ -32,6 +32,11 @@ exports.asistencia = [
                 documentType: {},
             },
             {
+                name: "justificacion",
+                id: "justificacion",
+                documentType: {},
+            },
+            {
                 name: "feriado",
                 id: "feriado",
                 documentType: {},

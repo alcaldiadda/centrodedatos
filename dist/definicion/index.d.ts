@@ -42,6 +42,10 @@ export declare const definicion: readonly [{
         readonly id: "ausencia";
         readonly documentType: import("..").Asistencia.AusenciaProps;
     }, {
+        readonly name: "justificacion";
+        readonly id: "justificacion";
+        readonly documentType: import("..").Asistencia.JustificacionProps;
+    }, {
         readonly name: "feriado";
         readonly id: "feriado";
         readonly documentType: import("..").Asistencia.FeriadoProps;
