@@ -14,15 +14,15 @@ export interface DatabaseConfig {
 export type GlobalMethods = {
     createOperations: (props: {
         transactionId: string;
-        operations: any[];
+        operations?: object[];
     }) => Promise<Models.Transaction>;
-    createTransaction: (props: {
+    createTransaction: (props?: {
         ttl?: number;
     }) => Promise<Models.Transaction>;
     getTransaction: (props: {
         transactionId: string;
     }) => Promise<Models.Transaction>;
-    listTransaction: (props: {
+    listTransaction: (props?: {
         queries?: string[];
     }) => Promise<Models.TransactionList>;
     updateTransaction: (props: {
@@ -97,27 +97,6 @@ export interface TablesMethods<T extends Models.Row = Models.Row> {
         min?: number;
         transactionId?: string;
     }) => Promise<T>;
-    createOperations: (props: {
-        operations: object[];
-        transactionId: string;
-    }) => Promise<Models.Transaction>;
-    createTransaction: (props?: {
-        ttl?: number;
-    }) => Promise<Models.Transaction>;
-    getTransaction: (props: {
-        transactionId: string;
-    }) => Promise<Models.Transaction>;
-    listTransaction: (props: {
-        queries?: string[];
-    }) => Promise<Models.TransactionList>;
-    updateTransaction: (props: {
-        transactionId: string;
-        commit?: boolean;
-        rollback?: boolean;
-    }) => Promise<Models.Transaction>;
-    deleteTransaction: (props: {
-        transactionId: string;
-    }) => Promise<{}>;
 }
 export type AppwriteDBInterface<T extends readonly DatabaseConfig[]> = {
     [DBConfig in T[number] as DBConfig["name"]]: {

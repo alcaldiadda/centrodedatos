@@ -18,13 +18,13 @@ export interface DatabaseConfig {
 export type GlobalMethods = {
   createOperations: (props: {
     transactionId: string;
-    operations: any[];
+    operations?: object[];
   }) => Promise<Models.Transaction>;
-  createTransaction: (props: { ttl?: number }) => Promise<Models.Transaction>;
+  createTransaction: (props?: { ttl?: number }) => Promise<Models.Transaction>;
   getTransaction: (props: {
     transactionId: string;
   }) => Promise<Models.Transaction>;
-  listTransaction: (props: {
+  listTransaction: (props?: {
     queries?: string[];
   }) => Promise<Models.TransactionList>;
   updateTransaction: (props: {
@@ -97,23 +97,6 @@ export interface TablesMethods<T extends Models.Row = Models.Row> {
     min?: number;
     transactionId?: string;
   }) => Promise<T>;
-  createOperations: (props: {
-    operations: object[];
-    transactionId: string;
-  }) => Promise<Models.Transaction>;
-  createTransaction: (props?: { ttl?: number }) => Promise<Models.Transaction>;
-  getTransaction: (props: {
-    transactionId: string;
-  }) => Promise<Models.Transaction>;
-  listTransaction: (props: {
-    queries?: string[];
-  }) => Promise<Models.TransactionList>;
-  updateTransaction: (props: {
-    transactionId: string;
-    commit?: boolean;
-    rollback?: boolean;
-  }) => Promise<Models.Transaction>;
-  deleteTransaction: (props: { transactionId: string }) => Promise<{}>;
 }
 
 export type AppwriteDBInterface<T extends readonly DatabaseConfig[]> = {
@@ -144,7 +127,7 @@ export function createDb(
 
   // Métodos globales
   db.createOperations = (props: {
-    operations: object[];
+    operations?: object[];
     transactionId: string;
   }) => appwriteDatabases.createOperations(props);
 
@@ -154,7 +137,7 @@ export function createDb(
   db.getTransaction = (props: { transactionId: string }) =>
     appwriteDatabases.getTransaction(props);
 
-  db.listTransaction = (props: { queries?: string[] }) =>
+  db.listTransaction = (props?: { queries?: string[] }) =>
     appwriteDatabases.listTransactions(props);
 
   db.updateTransaction = (props: {
