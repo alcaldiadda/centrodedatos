@@ -86,7 +86,7 @@ declare namespace Asistencia {
 
   type AusenciaProps = Ausencia & Models.Row;
 
-  type Justificacion = {
+  type Justificativo = {
     id_identidad: string;
     tipo: string;
     id_reemplazante?: string;
@@ -97,7 +97,7 @@ declare namespace Asistencia {
     actualizado_por?: string | null;
   };
 
-  type JustificacionProps = Justificacion & Models.Row;
+  type JustificativoProps = Justificativo & Models.Row;
 
   type JustificacionArmonia = {
     run: string;
@@ -133,7 +133,7 @@ declare namespace Asistencia {
     | MarcacionProps
     | MarcacionDiariaProps
     | MarcacionMensualProps
-    | JustificacionProps
+    | JustificativoProps
     | FeriadoProps
     | JornadaProps;
 

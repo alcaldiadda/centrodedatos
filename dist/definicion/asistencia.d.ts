@@ -23,9 +23,9 @@ export declare const asistencia: readonly [{
         readonly id: "ausencia";
         readonly documentType: Asistencia.AusenciaProps;
     }, {
-        readonly name: "justificacion";
-        readonly id: "justificacion";
-        readonly documentType: Asistencia.JustificacionProps;
+        readonly name: "justificativo";
+        readonly id: "justificativo";
+        readonly documentType: Asistencia.JustificativoProps;
     }, {
         readonly name: "feriado";
         readonly id: "feriado";

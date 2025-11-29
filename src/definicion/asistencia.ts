@@ -31,9 +31,9 @@ export const asistencia = [
         documentType: {} as Asistencia.AusenciaProps,
       },
       {
-        name: "justificacion",
-        id: "justificacion",
-        documentType: {} as Asistencia.JustificacionProps,
+        name: "justificativo",
+        id: "justificativo",
+        documentType: {} as Asistencia.JustificativoProps,
       },
       {
         name: "feriado",

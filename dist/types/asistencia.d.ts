@@ -66,7 +66,7 @@ declare namespace Asistencia {
         fecha: string;
     };
     type AusenciaProps = Ausencia & Models.Row;
-    type Justificacion = {
+    type Justificativo = {
         id_identidad: string;
         tipo: string;
         id_reemplazante?: string;
@@ -76,7 +76,7 @@ declare namespace Asistencia {
         agregado_por?: string | null;
         actualizado_por?: string | null;
     };
-    type JustificacionProps = Justificacion & Models.Row;
+    type JustificativoProps = Justificativo & Models.Row;
     type JustificacionArmonia = {
         run: string;
         fechaInicio: string;
@@ -102,7 +102,7 @@ declare namespace Asistencia {
         tipo: typeof JornadaTipo;
     };
     type JornadaProps = Jornada & Models.Row;
-    type TodosProps = MarcacionProps | MarcacionDiariaProps | MarcacionMensualProps | JustificacionProps | FeriadoProps | JornadaProps;
+    type TodosProps = MarcacionProps | MarcacionDiariaProps | MarcacionMensualProps | JustificativoProps | FeriadoProps | JornadaProps;
     type SalidaTipoMarcacion = {
         tipo: (typeof TipoMarcacion)[keyof typeof TipoMarcacion];
         mensaje: string;
