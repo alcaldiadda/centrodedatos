@@ -101,10 +101,10 @@ declare namespace Asistencia {
 
   type JustificacionArmonia = {
     run: string;
-    fecha_inicio: string;
-    fecha_termino: string;
-    numero_decreto: number | null;
-    id_reemplazante?: number | null;
+    fechaInicio: string;
+    fechaTermino: string;
+    numeroDecreto: number | null;
+    idReemplazante?: number | null;
     dias: number;
     tipo: string;
   };
