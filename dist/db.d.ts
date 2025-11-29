@@ -11,6 +11,29 @@ export interface DatabaseConfig {
     readonly id: string;
     readonly tables: readonly TableConfig[];
 }
+export type GlobalMethods = {
+    createOperations: (props: {
+        transactionId: string;
+        operations: any[];
+    }) => Promise<Models.Transaction>;
+    createTransaction: (props: {
+        ttl?: number;
+    }) => Promise<Models.Transaction>;
+    getTransaction: (props: {
+        transactionId: string;
+    }) => Promise<Models.Transaction>;
+    listTransaction: (props: {
+        queries?: string[];
+    }) => Promise<Models.TransactionList>;
+    updateTransaction: (props: {
+        transactionId: string;
+        commit?: boolean;
+        rollback?: boolean;
+    }) => Promise<Models.Transaction>;
+    deleteTransaction: (props: {
+        transactionId: string;
+    }) => Promise<{}>;
+};
 export interface TablesMethods<T extends Models.Row = Models.Row> {
     createRow: (props: {
         rowId: string;

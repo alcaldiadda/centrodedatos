@@ -15,6 +15,26 @@ export interface DatabaseConfig {
   readonly tables: readonly TableConfig[];
 }
 
+export type GlobalMethods = {
+  createOperations: (props: {
+    transactionId: string;
+    operations: any[];
+  }) => Promise<Models.Transaction>;
+  createTransaction: (props: { ttl?: number }) => Promise<Models.Transaction>;
+  getTransaction: (props: {
+    transactionId: string;
+  }) => Promise<Models.Transaction>;
+  listTransaction: (props: {
+    queries?: string[];
+  }) => Promise<Models.TransactionList>;
+  updateTransaction: (props: {
+    transactionId: string;
+    commit?: boolean;
+    rollback?: boolean;
+  }) => Promise<Models.Transaction>;
+  deleteTransaction: (props: { transactionId: string }) => Promise<{}>;
+};
+
 export interface TablesMethods<T extends Models.Row = Models.Row> {
   createRow: (props: {
     rowId: string;
@@ -116,9 +136,32 @@ export type AppwriteDBInterface<T extends readonly DatabaseConfig[]> = {
 export function createDb(
   appwriteDatabases: TablesDB
 ): AppwriteDBInterface<typeof definicion> {
-  const db: AppwriteDBInterface<typeof definicion> = {} as AppwriteDBInterface<
-    typeof definicion
-  >;
+  const db: AppwriteDBInterface<typeof definicion> & GlobalMethods =
+    {} as AppwriteDBInterface<typeof definicion> & GlobalMethods;
+
+  // Métodos globales
+  db.createOperations = (props: {
+    operations: object[];
+    transactionId: string;
+  }) => appwriteDatabases.createOperations(props);
+
+  db.createTransaction = (props?: { ttl?: number }) =>
+    appwriteDatabases.createTransaction(props);
+
+  db.getTransaction = (props: { transactionId: string }) =>
+    appwriteDatabases.getTransaction(props);
+
+  db.listTransaction = (props: { queries?: string[] }) =>
+    appwriteDatabases.listTransactions(props);
+
+  db.updateTransaction = (props: {
+    transactionId: string;
+    commit?: boolean;
+    rollback?: boolean;
+  }) => appwriteDatabases.updateTransaction(props);
+
+  db.deleteTransaction = (props: { transactionId: string }) =>
+    appwriteDatabases.deleteTransaction(props);
 
   definicion.forEach((dbConfig) => {
     (db as any)[dbConfig.name] = {}; // Inicializa la DB en el objeto db
@@ -232,23 +275,6 @@ export function createDb(
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
-        createOperations: (props: {
-          operations: object[];
-          transactionId: string;
-        }) => appwriteDatabases.createOperations(props),
-        createTransaction: (props?: { ttl?: number }) =>
-          appwriteDatabases.createTransaction(props),
-        getTransaction: (props: { transactionId: string }) =>
-          appwriteDatabases.getTransaction(props),
-        listTransaction: (props: { queries?: string[] }) =>
-          appwriteDatabases.listTransactions(props),
-        updateTransaction: (props: {
-          transactionId: string;
-          commit?: boolean;
-          rollback?: boolean;
-        }) => appwriteDatabases.updateTransaction(props),
-        deleteTransaction: (props: { transactionId: string }) =>
-          appwriteDatabases.deleteTransaction(props),
       };
     });
   });

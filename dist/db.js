@@ -19,6 +19,21 @@ var definicion_1 = require("./definicion");
  */
 function createDb(appwriteDatabases) {
     var db = {};
+    // Métodos globales
+    db.createOperations = function (props) { return appwriteDatabases.createOperations(props); };
+    db.createTransaction = function (props) {
+        return appwriteDatabases.createTransaction(props);
+    };
+    db.getTransaction = function (props) {
+        return appwriteDatabases.getTransaction(props);
+    };
+    db.listTransaction = function (props) {
+        return appwriteDatabases.listTransactions(props);
+    };
+    db.updateTransaction = function (props) { return appwriteDatabases.updateTransaction(props); };
+    db.deleteTransaction = function (props) {
+        return appwriteDatabases.deleteTransaction(props);
+    };
     definicion_1.definicion.forEach(function (dbConfig) {
         db[dbConfig.name] = {}; // Inicializa la DB en el objeto db
         dbConfig.tables.forEach(function (tableConfig) {
@@ -58,20 +73,6 @@ function createDb(appwriteDatabases) {
                 },
                 decrementRowColumn: function (props) {
                     return appwriteDatabases.decrementRowColumn(__assign(__assign({}, props), { databaseId: dbConfig.id, tableId: tableConfig.id }));
-                },
-                createOperations: function (props) { return appwriteDatabases.createOperations(props); },
-                createTransaction: function (props) {
-                    return appwriteDatabases.createTransaction(props);
-                },
-                getTransaction: function (props) {
-                    return appwriteDatabases.getTransaction(props);
-                },
-                listTransaction: function (props) {
-                    return appwriteDatabases.listTransactions(props);
-                },
-                updateTransaction: function (props) { return appwriteDatabases.updateTransaction(props); },
-                deleteTransaction: function (props) {
-                    return appwriteDatabases.deleteTransaction(props);
                 },
             };
         });
