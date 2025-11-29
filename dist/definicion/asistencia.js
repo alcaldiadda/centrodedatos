@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TipoAusencia = exports.JornadaTipo = exports.TipoMarcacion = exports.asistencia = void 0;
+exports.TipoJustificativo = exports.JornadaTipo = exports.TipoMarcacion = exports.asistencia = void 0;
 exports.asistencia = [
     {
         name: "asistencia",
@@ -62,11 +62,10 @@ exports.JornadaTipo = {
     ESPECIAL: "especial",
     USUARIO: "usuario",
 };
-exports.TipoAusencia = {
+exports.TipoJustificativo = {
     PERMISOS_ADMINISTRATIVOS_SIN_GOCE: "PERMISOS_ADMINISTRATIVOS_SIN_GOCE",
     PERMISOS_ADMINISTRATIVOS: "PERMISOS_ADMINISTRATIVOS",
     TIEMPO_COMPENSADO: "TIEMPO_COMPENSADO",
     FERIADO_LEGAL: "FERIADO_LEGAL",
     LICENCIA_MEDICA: "LICENCIA_MEDICA",
-    DESCONOCIDA: "DESCONOCIDA",
 };

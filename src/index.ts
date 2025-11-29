@@ -9,7 +9,7 @@ import {
 import {
   JornadaTipo,
   TipoMarcacion,
-  TipoAusencia,
+  TipoJustificativo,
 } from "./definicion/asistencia";
 
 export type { AppwriteClientConfig } from "./appwrite-sdk-builder";
@@ -40,4 +40,4 @@ export type { CustomFunctions } from "./func";
 
 export { Acceso, Asistencia, Persona, GestorDocumental, Historial };
 
-export { TipoMarcacion, JornadaTipo, TipoAusencia };
+export { TipoMarcacion, JornadaTipo, TipoJustificativo };

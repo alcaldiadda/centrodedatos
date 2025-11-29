@@ -49,11 +49,10 @@ export declare const JornadaTipo: {
     readonly ESPECIAL: "especial";
     readonly USUARIO: "usuario";
 };
-export declare const TipoAusencia: {
+export declare const TipoJustificativo: {
     PERMISOS_ADMINISTRATIVOS_SIN_GOCE: string;
     PERMISOS_ADMINISTRATIVOS: string;
     TIEMPO_COMPENSADO: string;
     FERIADO_LEGAL: string;
     LICENCIA_MEDICA: string;
-    DESCONOCIDA: string;
 };
