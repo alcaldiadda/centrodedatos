@@ -126,8 +126,10 @@ export type AppwriteDBInterface<T extends readonly DatabaseConfig[]> = {
         } ? D extends Models.Row ? TablesMethods<D> : TablesMethods<Models.Row> : TablesMethods<Models.Row>;
     };
 };
+type AppwriteDBWithGlobals<T extends readonly DatabaseConfig[]> = AppwriteDBInterface<T> & GlobalMethods;
 /**
  * Crea y devuelve el objeto 'db' tipado para interactuar con las
  * bases de datos de Appwrite. Requiere una instancia inicializada de 'Databases'.
  */
-export declare function createDb(appwriteDatabases: TablesDB): AppwriteDBInterface<typeof definicion>;
+export declare function createDb(appwriteDatabases: TablesDB): AppwriteDBWithGlobals<typeof definicion>;
+export {};
