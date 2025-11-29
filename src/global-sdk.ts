@@ -11,12 +11,12 @@ import {
   buildAppwriteClientInstances,
   AppwriteClientConfig,
 } from "./appwrite-sdk-builder";
-import { createDb, AppwriteDBInterface } from "./db";
+import { createDb, AppwriteDBInterface, AppwriteDBWithGlobals } from "./db";
 import { definicion } from "./definicion";
 import { createFunc, CustomFunctions } from "./func";
 
 interface GlobalSDKCombinedInstance {
-  db: AppwriteDBInterface<typeof definicion>;
+  db: AppwriteDBWithGlobals<typeof definicion>;
   func: CustomFunctions;
   account: Account;
   users: Users;
@@ -119,8 +119,8 @@ export const init = (config: AppwriteClientConfig): void => {
   console.log("centro-de-datos: SDK global inicializado.");
 };
 
-export const db: AppwriteDBInterface<typeof definicion> = new Proxy(
-  {} as AppwriteDBInterface<typeof definicion>,
+export const db: AppwriteDBWithGlobals<typeof definicion> = new Proxy(
+  {} as AppwriteDBWithGlobals<typeof definicion>,
   createGlobalServiceProxyHandler("db")
 );
 export const func: CustomFunctions = new Proxy(

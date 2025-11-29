@@ -1,6 +1,6 @@
 import { Account, Avatars, Locale, Messaging, Storage, Teams, Users } from "node-appwrite";
 import { AppwriteClientConfig } from "./appwrite-sdk-builder";
-import { AppwriteDBInterface } from "./db";
+import { AppwriteDBWithGlobals } from "./db";
 import { definicion } from "./definicion";
 import { CustomFunctions } from "./func";
 /**
@@ -9,7 +9,7 @@ import { CustomFunctions } from "./func";
  * @param config Configuración para el cliente de Appwrite (endpoint, projectId, apiKey u optional sessionToken).
  */
 export declare const init: (config: AppwriteClientConfig) => void;
-export declare const db: AppwriteDBInterface<typeof definicion>;
+export declare const db: AppwriteDBWithGlobals<typeof definicion>;
 export declare const func: CustomFunctions;
 export declare const account: Account;
 export declare const users: Users;

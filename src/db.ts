@@ -129,7 +129,7 @@ export type AppwriteDBInterface<T extends readonly DatabaseConfig[]> = {
   };
 };
 
-type AppwriteDBWithGlobals<T extends readonly DatabaseConfig[]> =
+export type AppwriteDBWithGlobals<T extends readonly DatabaseConfig[]> =
   AppwriteDBInterface<T> & GlobalMethods;
 
 /**
@@ -139,7 +139,8 @@ type AppwriteDBWithGlobals<T extends readonly DatabaseConfig[]> =
 export function createDb(
   appwriteDatabases: TablesDB
 ): AppwriteDBWithGlobals<typeof definicion> {
-  const db = {} as AppwriteDBWithGlobals<typeof definicion>;
+  const db: AppwriteDBWithGlobals<typeof definicion> =
+    {} as AppwriteDBWithGlobals<typeof definicion>;
 
   // Métodos globales
   db.createOperations = (props: {
