@@ -67,12 +67,13 @@ declare namespace Asistencia {
     };
     type AusenciaProps = Ausencia & Models.Row;
     type Justificativo = {
+        fecha_inicio: string;
+        fecha_termino: string;
         id_identidad: string;
         tipo: string;
         id_reemplazante?: string;
-        fecha_inicio: string;
-        fecha_termino: string;
         folio_decreto?: string;
+        numero_dias: number;
         agregado_por?: string | null;
         actualizado_por?: string | null;
     };
