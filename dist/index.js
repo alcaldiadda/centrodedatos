@@ -1,9 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TipoJustificativo = exports.JornadaTipo = exports.TipoMarcacion = exports.Query = exports.ID = exports.CentroDeDatos = exports.teams = exports.storage = exports.messaging = exports.locale = exports.avatars = exports.users = exports.account = exports.func = exports.db = exports.init = void 0;
+exports.TipoJustificativo = exports.JornadaTipo = exports.TipoMarcacion = exports.Models = exports.Query = exports.ID = exports.CentroDeDatos = exports.teams = exports.storage = exports.messaging = exports.locale = exports.avatars = exports.users = exports.account = exports.func = exports.db = exports.init = void 0;
 var node_appwrite_1 = require("node-appwrite");
 Object.defineProperty(exports, "ID", { enumerable: true, get: function () { return node_appwrite_1.ID; } });
 Object.defineProperty(exports, "Query", { enumerable: true, get: function () { return node_appwrite_1.Query; } });
+Object.defineProperty(exports, "Models", { enumerable: true, get: function () { return node_appwrite_1.Models; } });
 var asistencia_1 = require("./definicion/asistencia");
 Object.defineProperty(exports, "JornadaTipo", { enumerable: true, get: function () { return asistencia_1.JornadaTipo; } });
 Object.defineProperty(exports, "TipoMarcacion", { enumerable: true, get: function () { return asistencia_1.TipoMarcacion; } });
