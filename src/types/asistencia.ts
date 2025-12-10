@@ -9,8 +9,8 @@ declare namespace Asistencia {
     id_jornada?: string;
     id_dispositivo: string;
     identidad_pin?: string;
-    agregado_por?: string | null;
-    actualizado_por?: string | null;
+    zona_horaria: string;
+    offset: number;
   };
 
   type MarcacionProps = MarcacionBase & Models.Row;
