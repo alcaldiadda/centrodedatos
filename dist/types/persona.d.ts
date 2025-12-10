@@ -3,21 +3,17 @@ declare namespace Persona {
     type Identidad = {
         nombre: string;
         pid: string;
-        avatar?: boolean;
-        telefono?: boolean;
-        celular?: boolean;
-        contrato: boolean;
-        id_departamento?: string;
+        avatar?: string;
+        telefono?: string;
+        celular?: string;
         estado: boolean;
-        cargo?: string;
         fecha_nacimiento?: string;
         sexo?: string;
-        extado_civil?: string;
+        estado_civil?: string;
         direcion?: string;
         comuna?: string;
         ciudad?: string;
-        creado_por: string;
-        actualizado_por: string;
+        nacionalidad?: string;
     };
     type IdentidadProps = Identidad & Models.Row;
     type Departamento = {
