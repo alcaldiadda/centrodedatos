@@ -17,6 +17,14 @@ export declare const definicion: readonly [{
         readonly name: "dispositivoComando";
         readonly id: "dispositivo-comando";
         readonly documentType: import("..").Acceso.DispositivoComandoProps;
+    }, {
+        readonly name: "autorizacion";
+        readonly id: "autorizacion";
+        readonly documentType: import("..").Acceso.AutorizacionProps;
+    }, {
+        readonly name: "zona";
+        readonly id: "zona";
+        readonly documentType: import("..").Acceso.ZonaProps;
     }];
 }, {
     readonly name: "asistencia";

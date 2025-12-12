@@ -21,6 +21,7 @@ declare namespace Acceso {
     cantidad_rostros?: string;
     cantidad_espacio?: string;
     cantidad_registros?: string;
+    id_zona: string;
   };
 
   type DispositivoProps = Dispositivo & Models.Row;
@@ -56,6 +57,22 @@ declare namespace Acceso {
   };
 
   type DispositivoRespuestaProps = DispositivoRespuesta & Models.Row;
+
+  type Autorizacion = {
+    id_identidad: string;
+    id_zona: string;
+    fecha_inicio?: string;
+    fecha_fin?: string;
+  };
+
+  type AutorizacionProps = Autorizacion & Models.Row;
+
+  type Zona = {
+    nombre: string;
+    descripcion?: string;
+  };
+
+  type ZonaProps = Zona & Models.Row;
 
   type TodosProps =
     | DispositivoProps

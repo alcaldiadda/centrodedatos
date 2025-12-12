@@ -26,6 +26,16 @@ exports.acceso = [
                 id: "dispositivo-comando",
                 documentType: {},
             },
+            {
+                name: "autorizacion",
+                id: "autorizacion",
+                documentType: {},
+            },
+            {
+                name: "zona",
+                id: "zona",
+                documentType: {},
+            },
         ],
     },
 ];

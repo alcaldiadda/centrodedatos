@@ -15,6 +15,7 @@ declare namespace Persona {
     comuna?: string;
     ciudad?: string;
     nacionalidad?: string;
+    pin?: string;
   };
 
   type IdentidadProps = Identidad & Models.Row;

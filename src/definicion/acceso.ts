@@ -26,6 +26,16 @@ export const acceso = [
         id: "dispositivo-comando",
         documentType: {} as Acceso.DispositivoComandoProps,
       },
+      {
+        name: "autorizacion",
+        id: "autorizacion",
+        documentType: {} as Acceso.AutorizacionProps,
+      },
+      {
+        name: "zona",
+        id: "zona",
+        documentType: {} as Acceso.ZonaProps,
+      },
     ] as const,
   } as const,
 ] as const;

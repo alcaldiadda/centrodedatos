@@ -18,5 +18,13 @@ export declare const acceso: readonly [{
         readonly name: "dispositivoComando";
         readonly id: "dispositivo-comando";
         readonly documentType: Acceso.DispositivoComandoProps;
+    }, {
+        readonly name: "autorizacion";
+        readonly id: "autorizacion";
+        readonly documentType: Acceso.AutorizacionProps;
+    }, {
+        readonly name: "zona";
+        readonly id: "zona";
+        readonly documentType: Acceso.ZonaProps;
     }];
 }];
