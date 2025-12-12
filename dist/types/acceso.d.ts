@@ -2,7 +2,6 @@ import { Models } from "node-appwrite";
 declare namespace Acceso {
     type Dispositivo = {
         numero_serie: string;
-        ubicacion?: string;
         habilitado: boolean;
         ip?: string;
         logs: boolean;
