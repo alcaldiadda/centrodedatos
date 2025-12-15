@@ -1,4 +1,11 @@
-import { ID, Query, Models, AppwriteException } from "node-appwrite";
+import {
+  ID,
+  Query,
+  Models,
+  AppwriteException,
+  Permission,
+  Role,
+} from "node-appwrite";
 import {
   Acceso,
   Asistencia,
@@ -27,7 +34,7 @@ export {
 } from "./global-sdk";
 
 export { CentroDeDatos, CentroDeDatosInstances } from "./per-request-sdk";
-export { ID, Query, Models, AppwriteException };
+export { ID, Query, Models, Permission, Role, AppwriteException };
 
 export type {
   AppwriteDBInterface,
