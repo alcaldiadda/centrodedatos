@@ -8,10 +8,10 @@ import {
   Users,
 } from "node-appwrite";
 import {
-  buildAppwriteClientInstances,
   AppwriteClientConfig,
+  buildAppwriteClientInstances,
 } from "./appwrite-sdk-builder";
-import { createDb, AppwriteDBInterface, AppwriteDBWithGlobals } from "./db";
+import { AppwriteDBWithGlobals, createDb } from "./db";
 import { definicion } from "./definicion";
 import { createFunc, CustomFunctions } from "./func";
 

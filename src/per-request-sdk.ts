@@ -12,7 +12,7 @@ import {
   AppwriteServiceInstances,
   buildAppwriteClientInstances,
 } from "./appwrite-sdk-builder";
-import { AppwriteDBInterface, createDb } from "./db";
+import { AppwriteDBWithGlobals, createDb } from "./db";
 import { definicion } from "./definicion";
 import { createFunc, CustomFunctions } from "./func";
 
@@ -21,7 +21,7 @@ import { createFunc, CustomFunctions } from "./func";
  * Ahora incluye 'db', 'func' y todos los demás servicios de Appwrite.
  */
 export interface CentroDeDatosInstances {
-  db: AppwriteDBInterface<typeof definicion>;
+  db: AppwriteDBWithGlobals<typeof definicion>;
   func: CustomFunctions;
   account: Account;
   users: Users;

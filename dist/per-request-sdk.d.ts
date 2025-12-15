@@ -1,6 +1,6 @@
 import { Account, Avatars, Locale, Messaging, Storage, Teams, Users } from "node-appwrite";
 import { AppwriteClientConfig, AppwriteServiceInstances } from "./appwrite-sdk-builder";
-import { AppwriteDBInterface } from "./db";
+import { AppwriteDBWithGlobals } from "./db";
 import { definicion } from "./definicion";
 import { CustomFunctions } from "./func";
 /**
@@ -8,7 +8,7 @@ import { CustomFunctions } from "./func";
  * Ahora incluye 'db', 'func' y todos los demás servicios de Appwrite.
  */
 export interface CentroDeDatosInstances {
-    db: AppwriteDBInterface<typeof definicion>;
+    db: AppwriteDBWithGlobals<typeof definicion>;
     func: CustomFunctions;
     account: Account;
     users: Users;
