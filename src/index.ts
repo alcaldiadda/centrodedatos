@@ -5,6 +5,7 @@ import {
   AppwriteException,
   Permission,
   Role,
+  Operator,
 } from "node-appwrite";
 import {
   Acceso,
@@ -35,7 +36,7 @@ export {
 } from "./global-sdk";
 
 export { CentroDeDatos, CentroDeDatosInstances } from "./per-request-sdk";
-export { ID, Query, Models, Permission, Role, AppwriteException };
+export { ID, Query, Operator, Models, Permission, Role, AppwriteException };
 
 export type {
   AppwriteDBInterface,
