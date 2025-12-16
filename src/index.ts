@@ -18,6 +18,7 @@ import {
   TipoMarcacion,
   TipoJustificativo,
 } from "./definicion/asistencia";
+import { EstadoComando } from "./definicion/acceso";
 
 export type { AppwriteClientConfig } from "./appwrite-sdk-builder";
 export {
@@ -47,4 +48,4 @@ export type { CustomFunctions } from "./func";
 
 export { Acceso, Asistencia, Persona, GestorDocumental, Historial };
 
-export { TipoMarcacion, JornadaTipo, TipoJustificativo };
+export { TipoMarcacion, JornadaTipo, TipoJustificativo, EstadoComando };
