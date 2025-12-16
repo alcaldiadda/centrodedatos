@@ -37,7 +37,8 @@ declare namespace Acceso {
     type DispositivoLogProps = DispositivoLog & Models.Row;
     type DispositivoComando = {
         numero_serie: string;
-        comando: string;
+        tipo: string;
+        payload: string;
         estado: typeof EstadoComando;
         intentos: number;
     };
