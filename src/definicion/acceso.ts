@@ -39,3 +39,8 @@ export const acceso = [
     ] as const,
   } as const,
 ] as const;
+
+export const EstadoComando = {
+  PENDIENTE: "PENDIENTE",
+  EJECUTADO: "EJECUTADO",
+};

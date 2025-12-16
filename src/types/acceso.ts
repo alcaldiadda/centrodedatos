@@ -1,4 +1,5 @@
 import { Models } from "node-appwrite";
+import { EstadoComando } from "root/definicion/acceso";
 
 declare namespace Acceso {
   type Dispositivo = {
@@ -42,7 +43,8 @@ declare namespace Acceso {
   type DispositivoComando = {
     numero_serie: string;
     comando: string;
-    reintentos: number;
+    estado: typeof EstadoComando;
+    intentos: number;
   };
 
   type DispositivoComandoProps = DispositivoComando & Models.Row;

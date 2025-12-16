@@ -28,3 +28,7 @@ export declare const acceso: readonly [{
         readonly documentType: Acceso.ZonaProps;
     }];
 }];
+export declare const EstadoComando: {
+    PENDIENTE: string;
+    EJECUTADO: string;
+};
