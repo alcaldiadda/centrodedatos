@@ -43,4 +43,5 @@ export const acceso = [
 export const EstadoComando = {
   PENDIENTE: "PENDIENTE",
   EJECUTADO: "EJECUTADO",
+  ERROR: "ERROR",
 };

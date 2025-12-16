@@ -42,4 +42,5 @@ exports.acceso = [
 exports.EstadoComando = {
     PENDIENTE: "PENDIENTE",
     EJECUTADO: "EJECUTADO",
+    ERROR: "ERROR",
 };

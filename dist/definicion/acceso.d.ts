@@ -31,4 +31,5 @@ export declare const acceso: readonly [{
 export declare const EstadoComando: {
     PENDIENTE: string;
     EJECUTADO: string;
+    ERROR: string;
 };
