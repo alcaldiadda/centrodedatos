@@ -8,17 +8,14 @@ declare namespace Asistencia {
     tipo: string;
     id_jornada?: string;
     id_dispositivo: string;
-    identidad_pin?: string;
+    pin?: string;
     zona_horaria: string;
     offset: number;
   };
 
   type MarcacionProps = MarcacionBase & Models.Row;
 
-  type MarcacionBruta = Pick<
-    MarcacionBase,
-    "id_identidad" | "identidad_pin" | "fecha"
-  >;
+  type MarcacionBruta = Pick<MarcacionBase, "id_identidad" | "pin" | "fecha">;
 
   export type Marcacion = Pick<
     MarcacionBase,
@@ -67,10 +64,10 @@ declare namespace Asistencia {
   type RegistraMarcacion = {
     fecha_string: string;
     id_dispositivo: string;
-    identidad_pin?: string;
     motivo?: string;
     $id?: string;
     pid?: string;
+    pin?: string;
   };
 
   type PresenciaDiaria = {
