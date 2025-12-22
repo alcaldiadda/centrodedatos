@@ -20,6 +20,7 @@ import {
   TipoJustificativo,
 } from "./definicion/asistencia";
 import { EstadoComando } from "./definicion/acceso";
+import { APIError } from "./APIError";
 
 export type { AppwriteClientConfig } from "./appwrite-sdk-builder";
 export {
@@ -44,6 +45,8 @@ export type {
   TablesMethods as CollectionMethods,
   DatabaseConfig,
 } from "./db";
+
+export { APIError };
 
 export type { CustomFunctions } from "./func";
 

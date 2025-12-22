@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EstadoComando = exports.TipoJustificativo = exports.JornadaTipo = exports.TipoMarcacion = exports.AppwriteException = exports.Role = exports.Permission = exports.Models = exports.Operator = exports.Query = exports.ID = exports.CentroDeDatos = exports.teams = exports.storage = exports.messaging = exports.locale = exports.avatars = exports.users = exports.account = exports.func = exports.db = exports.init = void 0;
+exports.EstadoComando = exports.TipoJustificativo = exports.JornadaTipo = exports.TipoMarcacion = exports.APIError = exports.AppwriteException = exports.Role = exports.Permission = exports.Models = exports.Operator = exports.Query = exports.ID = exports.CentroDeDatos = exports.teams = exports.storage = exports.messaging = exports.locale = exports.avatars = exports.users = exports.account = exports.func = exports.db = exports.init = void 0;
 var node_appwrite_1 = require("node-appwrite");
 Object.defineProperty(exports, "ID", { enumerable: true, get: function () { return node_appwrite_1.ID; } });
 Object.defineProperty(exports, "Query", { enumerable: true, get: function () { return node_appwrite_1.Query; } });
@@ -15,6 +15,8 @@ Object.defineProperty(exports, "TipoMarcacion", { enumerable: true, get: functio
 Object.defineProperty(exports, "TipoJustificativo", { enumerable: true, get: function () { return asistencia_1.TipoJustificativo; } });
 var acceso_1 = require("./definicion/acceso");
 Object.defineProperty(exports, "EstadoComando", { enumerable: true, get: function () { return acceso_1.EstadoComando; } });
+var APIError_1 = require("./APIError");
+Object.defineProperty(exports, "APIError", { enumerable: true, get: function () { return APIError_1.APIError; } });
 var global_sdk_1 = require("./global-sdk");
 Object.defineProperty(exports, "init", { enumerable: true, get: function () { return global_sdk_1.init; } });
 Object.defineProperty(exports, "db", { enumerable: true, get: function () { return global_sdk_1.db; } });
