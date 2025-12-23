@@ -20,7 +20,7 @@ import {
   TipoJustificativo,
 } from "./definicion/asistencia";
 import { EstadoComando } from "./definicion/acceso";
-import { APIError } from "./APIError";
+import { APIError, CODIGOS_ERROR } from "./APIError";
 
 export type { AppwriteClientConfig } from "./appwrite-sdk-builder";
 export {
@@ -46,7 +46,7 @@ export type {
   DatabaseConfig,
 } from "./db";
 
-export { APIError };
+export { APIError, CODIGOS_ERROR };
 
 export type { CustomFunctions } from "./func";
 
