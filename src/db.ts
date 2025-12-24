@@ -15,6 +15,14 @@ export interface DatabaseConfig {
   readonly tables: readonly TableConfig[];
 }
 
+type TableClient = {
+  [K in keyof TablesMethods]: TablesMethods[K] extends (
+    props: infer P
+  ) => Promise<infer R>
+    ? (props: P) => Promise<R>
+    : never;
+};
+
 export type GlobalMethods = {
   createOperations: (props: {
     transactionId: string;
@@ -52,7 +60,7 @@ export interface TablesMethods<T extends Models.Row = Models.Row> {
     queries?: string[];
     transactionId?: string;
   }) => Promise<T>;
-  listRows: (props: {
+  listRows: (props?: {
     queries?: string[];
     transactionId?: string;
   }) => Promise<Models.RowList<T>>;
@@ -79,7 +87,7 @@ export interface TablesMethods<T extends Models.Row = Models.Row> {
     transactionId?: string;
   }) => Promise<Models.RowList<T>>;
   deleteRow: (props: { rowId: string; transactionId?: string }) => Promise<{}>;
-  deleteRows: (props: {
+  deleteRows: (props?: {
     queries?: string[];
     transactionId?: string;
   }) => Promise<Models.RowList<T>>;
@@ -154,114 +162,79 @@ export function createDb(
 
     dbConfig.tables.forEach((tableConfig) => {
       (db as any)[dbConfig.name][tableConfig.name] = {
-        createRow: (props: {
-          rowId: string;
-          data: Record<string, any>;
-          permissions?: string[];
-          transactionId?: string;
-        }) =>
+        createRow: (props) =>
           appwriteDatabases.createRow({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
-        createRows: (props: { rows: object[]; transactionId?: string }) =>
+        createRows: (props) =>
           appwriteDatabases.createRows({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
-        getRow: (props: {
-          rowId: string;
-          queries?: string[];
-          transactionId?: string;
-        }) =>
+        getRow: (props) =>
           appwriteDatabases.getRow({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
-        listRows: (props: { queries?: string[]; transactionId?: string }) =>
+        listRows: (props) =>
           appwriteDatabases.listRows({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
-        updateRow: (props: {
-          rowId: string;
-          data: Record<string, any>;
-          permissions?: string[];
-          transactionId?: string;
-        }) =>
+        updateRow: (props) =>
           appwriteDatabases.updateRow({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
-        updateRows: (props: {
-          data: Record<string, any>;
-          queries?: string[];
-          transactionId?: string;
-        }) =>
+        updateRows: (props) =>
           appwriteDatabases.updateRows({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
-        upsertRow: (props: {
-          rowId: string;
-          data: Record<string, any>;
-          permissions?: string[];
-          transactionId?: string;
-        }) =>
+        upsertRow: (props) =>
           appwriteDatabases.upsertRow({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
-        upsertRows: (props: { rows: object[]; transactionId?: string }) =>
+        upsertRows: (props) =>
           appwriteDatabases.upsertRows({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
-        deleteRow: (props: { rowId: string; transactionId?: string }) =>
+        deleteRow: (props) =>
           appwriteDatabases.deleteRow({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
-        deleteRows: (props: { queries?: string[]; transactionId?: string }) =>
+        deleteRows: (props) =>
           appwriteDatabases.deleteRows({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
-        incrementRowColumn: (props: {
-          rowId: string;
-          column: string;
-          value?: number;
-          max?: number;
-          transactionId?: string;
-        }) =>
+        incrementRowColumn: (props) =>
           appwriteDatabases.incrementRowColumn({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
-        decrementRowColumn: (props: {
-          rowId: string;
-          column: string;
-          value?: number;
-          min?: number;
-          transactionId?: string;
-        }) =>
+        decrementRowColumn: (props) =>
           appwriteDatabases.decrementRowColumn({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
-      };
+      } as TableClient;
     });
   });
 

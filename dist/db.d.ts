@@ -50,7 +50,7 @@ export interface TablesMethods<T extends Models.Row = Models.Row> {
         queries?: string[];
         transactionId?: string;
     }) => Promise<T>;
-    listRows: (props: {
+    listRows: (props?: {
         queries?: string[];
         transactionId?: string;
     }) => Promise<Models.RowList<T>>;
@@ -79,7 +79,7 @@ export interface TablesMethods<T extends Models.Row = Models.Row> {
         rowId: string;
         transactionId?: string;
     }) => Promise<{}>;
-    deleteRows: (props: {
+    deleteRows: (props?: {
         queries?: string[];
         transactionId?: string;
     }) => Promise<Models.RowList<T>>;
