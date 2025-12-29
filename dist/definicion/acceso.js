@@ -17,6 +17,11 @@ exports.acceso = [
                 documentType: {},
             },
             {
+                name: "dispositivoLog",
+                id: "dispositivo-log",
+                documentType: {},
+            },
+            {
                 name: "autorizacion",
                 id: "autorizacion",
                 documentType: {},
