@@ -6,14 +6,6 @@ export declare const definicion: readonly [{
         readonly id: "dispositivo";
         readonly documentType: import("..").Acceso.DispositivoProps;
     }, {
-        readonly name: "dispositivoLog";
-        readonly id: "dispositivo-log";
-        readonly documentType: import("..").Acceso.DispositivoLogProps;
-    }, {
-        readonly name: "dispositivoRespuesta";
-        readonly id: "dispositivo-respuesta";
-        readonly documentType: import("..").Acceso.DispositivoRespuestaProps;
-    }, {
         readonly name: "dispositivoComando";
         readonly id: "dispositivo-comando";
         readonly documentType: import("..").Acceso.DispositivoComandoProps;
@@ -73,10 +65,6 @@ export declare const definicion: readonly [{
         readonly name: "departamento";
         readonly id: "departamento";
         readonly documentType: import("..").Persona.DepartamentoProps;
-    }, {
-        readonly name: "identidadDispositivo";
-        readonly id: "identidad-dispositivo";
-        readonly documentType: import("..").Persona.IdentidadDispositivoProps;
     }, {
         readonly name: "identidadAutenticacion";
         readonly id: "identidad-autenticacion";

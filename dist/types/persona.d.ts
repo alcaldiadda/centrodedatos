@@ -23,17 +23,12 @@ declare namespace Persona {
         id_padre?: string;
     };
     type DepartamentoProps = Departamento & Models.Row;
-    type IdentidadDispositivo = {
-        identidad_pin: string;
-        id_dispositivo: string;
-    };
-    type IdentidadDispositivoProps = IdentidadDispositivo & Models.Row;
     type IdentidadAutenticacion = {
         id_identidad: string;
         tipo: string;
         contenido: string;
     };
     type IdentidadAutenticacionProps = IdentidadAutenticacion & Models.Row;
-    type TodosProps = IdentidadProps | DepartamentoProps | IdentidadDispositivoProps | IdentidadAutenticacionProps;
+    type TodosProps = IdentidadProps | DepartamentoProps | IdentidadAutenticacionProps;
 }
 export { Persona };

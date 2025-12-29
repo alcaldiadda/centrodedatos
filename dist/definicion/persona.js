@@ -17,11 +17,6 @@ exports.persona = [
                 documentType: {},
             },
             {
-                name: "identidadDispositivo",
-                id: "identidad-dispositivo",
-                documentType: {},
-            },
-            {
                 name: "identidadAutenticacion",
                 id: "identidad-autenticacion",
                 documentType: {},

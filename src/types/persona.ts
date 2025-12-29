@@ -28,13 +28,6 @@ declare namespace Persona {
 
   type DepartamentoProps = Departamento & Models.Row;
 
-  type IdentidadDispositivo = {
-    identidad_pin: string;
-    id_dispositivo: string;
-  };
-
-  type IdentidadDispositivoProps = IdentidadDispositivo & Models.Row;
-
   type IdentidadAutenticacion = {
     id_identidad: string;
     tipo: string;
@@ -46,7 +39,6 @@ declare namespace Persona {
   type TodosProps =
     | IdentidadProps
     | DepartamentoProps
-    | IdentidadDispositivoProps
     | IdentidadAutenticacionProps;
 }
 

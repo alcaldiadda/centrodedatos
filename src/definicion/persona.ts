@@ -16,11 +16,6 @@ export const persona = [
         documentType: {} as Persona.DepartamentoProps,
       },
       {
-        name: "identidadDispositivo",
-        id: "identidad-dispositivo",
-        documentType: {} as Persona.IdentidadDispositivoProps,
-      },
-      {
         name: "identidadAutenticacion",
         id: "identidad-autenticacion",
         documentType: {} as Persona.IdentidadAutenticacionProps,
