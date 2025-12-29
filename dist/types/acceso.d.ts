@@ -32,6 +32,18 @@ declare namespace Acceso {
         respuesta?: string;
     };
     type DispositivoComandoProps = DispositivoComando & Models.Row;
+    type DispositivoLog = {
+        numero_serie: string;
+        codigo_op: string;
+        nombre_op: string;
+        fecha_hora: string;
+        id_admin: string;
+        paramtro1?: string;
+        paramtro2?: string;
+        paramtro3?: string;
+        paramtro4?: string;
+    };
+    type DispositivoLogProps = DispositivoLog & Models.Row;
     type Autorizacion = {
         id_identidad: string;
         id_zona: string;
@@ -44,6 +56,6 @@ declare namespace Acceso {
         descripcion?: string;
     };
     type ZonaProps = Zona & Models.Row;
-    type TodosProps = DispositivoProps | DispositivoComandoProps;
+    type TodosProps = DispositivoProps | DispositivoComandoProps | DispositivoLogProps;
 }
 export { Acceso };

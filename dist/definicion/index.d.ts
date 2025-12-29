@@ -12,7 +12,7 @@ export declare const definicion: readonly [{
     }, {
         readonly name: "dispositivoLog";
         readonly id: "dispositivo-log";
-        readonly documentType: Acceso.DispositivoLogProps;
+        readonly documentType: import("..").Acceso.DispositivoLogProps;
     }, {
         readonly name: "autorizacion";
         readonly id: "autorizacion";
