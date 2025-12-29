@@ -1,6 +1,6 @@
 {
   "name": "centro-de-datos",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "Paquete que contine las referencias a todas las bases de datos, colecciones, funciones, etc.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
