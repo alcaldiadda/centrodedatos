@@ -30,6 +30,6 @@ export declare const acceso: readonly [{
 }];
 export declare const EstadoEjecucion: {
     PENDIENTE: string;
-    EJECUTADO: string;
+    COMPLETADO: string;
     ERROR: string;
 };

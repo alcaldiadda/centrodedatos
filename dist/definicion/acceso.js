@@ -41,6 +41,6 @@ exports.acceso = [
 ];
 exports.EstadoEjecucion = {
     PENDIENTE: "PENDIENTE",
-    EJECUTADO: "EJECUTADO",
+    COMPLETADO: "COMPLETADO",
     ERROR: "ERROR",
 };
