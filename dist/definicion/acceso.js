@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EstadoComando = exports.acceso = void 0;
+exports.EstadoEjecucion = exports.acceso = void 0;
 exports.acceso = [
     {
         name: "acceso",
@@ -27,6 +27,11 @@ exports.acceso = [
                 documentType: {},
             },
             {
+                name: "sincronizacion",
+                id: "sincronizacion",
+                documentType: {},
+            },
+            {
                 name: "zona",
                 id: "zona",
                 documentType: {},
@@ -34,7 +39,7 @@ exports.acceso = [
         ],
     },
 ];
-exports.EstadoComando = {
+exports.EstadoEjecucion = {
     PENDIENTE: "PENDIENTE",
     EJECUTADO: "EJECUTADO",
     ERROR: "ERROR",

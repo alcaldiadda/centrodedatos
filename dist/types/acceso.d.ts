@@ -1,5 +1,5 @@
 import { Models } from "node-appwrite";
-import { EstadoComando } from "root/definicion/acceso";
+import { EstadoEjecucion } from "root/definicion/acceso";
 declare namespace Acceso {
     type Dispositivo = {
         numero_serie: string;
@@ -27,7 +27,7 @@ declare namespace Acceso {
         numero_serie: string;
         tipo: string;
         payload: string;
-        estado: typeof EstadoComando;
+        estado: typeof EstadoEjecucion;
         intentos: number;
         respuesta?: string;
     };
@@ -51,11 +51,17 @@ declare namespace Acceso {
         fecha_fin?: string;
     };
     type AutorizacionProps = Autorizacion & Models.Row;
+    type Sincronizacion = {
+        pin: string;
+        tipo: typeof EstadoEjecucion;
+        payload: string;
+    };
+    type SincronizacionProps = Sincronizacion & Models.Row;
     type Zona = {
         nombre: string;
         descripcion?: string;
     };
     type ZonaProps = Zona & Models.Row;
-    type TodosProps = DispositivoProps | DispositivoComandoProps | DispositivoLogProps;
+    type TodosProps = DispositivoProps | DispositivoComandoProps | DispositivoLogProps | AutorizacionProps | SincronizacionProps | ZonaProps;
 }
 export { Acceso };

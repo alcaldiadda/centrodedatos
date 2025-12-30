@@ -19,12 +19,16 @@ export declare const acceso: readonly [{
         readonly id: "autorizacion";
         readonly documentType: Acceso.AutorizacionProps;
     }, {
+        readonly name: "sincronizacion";
+        readonly id: "sincronizacion";
+        readonly documentType: Acceso.SincronizacionProps;
+    }, {
         readonly name: "zona";
         readonly id: "zona";
         readonly documentType: Acceso.ZonaProps;
     }];
 }];
-export declare const EstadoComando: {
+export declare const EstadoEjecucion: {
     PENDIENTE: string;
     EJECUTADO: string;
     ERROR: string;

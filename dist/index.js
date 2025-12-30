@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EstadoComando = exports.TipoJustificativo = exports.JornadaTipo = exports.TipoMarcacion = exports.CODIGOS_ERROR = exports.APIError = exports.AppwriteException = exports.Role = exports.Permission = exports.Models = exports.Operator = exports.Query = exports.ID = exports.CentroDeDatos = exports.teams = exports.storage = exports.messaging = exports.locale = exports.avatars = exports.users = exports.account = exports.func = exports.db = exports.init = void 0;
+exports.EstadoEjecucion = exports.TipoJustificativo = exports.JornadaTipo = exports.TipoMarcacion = exports.CODIGOS_ERROR = exports.APIError = exports.AppwriteException = exports.Role = exports.Permission = exports.Models = exports.Operator = exports.Query = exports.ID = exports.CentroDeDatos = exports.teams = exports.storage = exports.messaging = exports.locale = exports.avatars = exports.users = exports.account = exports.func = exports.db = exports.init = void 0;
 var node_appwrite_1 = require("node-appwrite");
 Object.defineProperty(exports, "ID", { enumerable: true, get: function () { return node_appwrite_1.ID; } });
 Object.defineProperty(exports, "Query", { enumerable: true, get: function () { return node_appwrite_1.Query; } });
@@ -14,7 +14,7 @@ Object.defineProperty(exports, "JornadaTipo", { enumerable: true, get: function 
 Object.defineProperty(exports, "TipoMarcacion", { enumerable: true, get: function () { return asistencia_1.TipoMarcacion; } });
 Object.defineProperty(exports, "TipoJustificativo", { enumerable: true, get: function () { return asistencia_1.TipoJustificativo; } });
 var acceso_1 = require("./definicion/acceso");
-Object.defineProperty(exports, "EstadoComando", { enumerable: true, get: function () { return acceso_1.EstadoComando; } });
+Object.defineProperty(exports, "EstadoEjecucion", { enumerable: true, get: function () { return acceso_1.EstadoEjecucion; } });
 var APIError_1 = require("./APIError");
 Object.defineProperty(exports, "APIError", { enumerable: true, get: function () { return APIError_1.APIError; } });
 Object.defineProperty(exports, "CODIGOS_ERROR", { enumerable: true, get: function () { return APIError_1.CODIGOS_ERROR; } });

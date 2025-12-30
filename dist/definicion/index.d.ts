@@ -18,6 +18,10 @@ export declare const definicion: readonly [{
         readonly id: "autorizacion";
         readonly documentType: import("..").Acceso.AutorizacionProps;
     }, {
+        readonly name: "sincronizacion";
+        readonly id: "sincronizacion";
+        readonly documentType: import("..").Acceso.SincronizacionProps;
+    }, {
         readonly name: "zona";
         readonly id: "zona";
         readonly documentType: import("..").Acceso.ZonaProps;
@@ -66,6 +70,10 @@ export declare const definicion: readonly [{
         readonly id: "identidad";
         readonly documentType: import("..").Persona.IdentidadProps;
     }, {
+        readonly name: "identidadLaboral";
+        readonly id: "identidad-laboral";
+        readonly documentType: import("..").Persona.IdentidadLaboralProps;
+    }, {
         readonly name: "departamento";
         readonly id: "departamento";
         readonly documentType: import("..").Persona.DepartamentoProps;
@@ -73,6 +81,10 @@ export declare const definicion: readonly [{
         readonly name: "identidadAutenticacion";
         readonly id: "identidad-autenticacion";
         readonly documentType: import("..").Persona.IdentidadAutenticacionProps;
+    }, {
+        readonly name: "sincronizacion";
+        readonly id: "sincronizacion";
+        readonly documentType: import("..").Persona.SincronizacionProps;
     }];
 }, {
     readonly name: "gestorDocumental";

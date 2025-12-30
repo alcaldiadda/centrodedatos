@@ -12,6 +12,11 @@ exports.persona = [
                 documentType: {},
             },
             {
+                name: "identidadLaboral",
+                id: "identidad-laboral",
+                documentType: {},
+            },
+            {
                 name: "departamento",
                 id: "departamento",
                 documentType: {},
@@ -19,6 +24,11 @@ exports.persona = [
             {
                 name: "identidadAutenticacion",
                 id: "identidad-autenticacion",
+                documentType: {},
+            },
+            {
+                name: "sincronizacion",
+                id: "sincronizacion",
                 documentType: {},
             },
         ],

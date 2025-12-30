@@ -1,4 +1,5 @@
 import { Models } from "node-appwrite";
+import { EstadoEjecucion } from "root/definicion/acceso";
 
 declare namespace Persona {
   type Identidad = {
@@ -20,6 +21,18 @@ declare namespace Persona {
 
   type IdentidadProps = Identidad & Models.Row;
 
+  type IdentidadLaboral = {
+    contrato: string;
+    id_departamento?: string;
+    cargo?: string;
+    jefe_directo?: string;
+    ingreso_administración_publica?: string;
+    ingreso_cargo?: string;
+    ingreso_municipalidad?: string;
+  };
+
+  type IdentidadLaboralProps = IdentidadLaboral & Models.Row;
+
   type Departamento = {
     nombre: string;
     nombre_corto: string;
@@ -36,10 +49,20 @@ declare namespace Persona {
 
   type IdentidadAutenticacionProps = IdentidadAutenticacion & Models.Row;
 
+  type Sincronizacion = {
+    pin: string;
+    tipo: typeof EstadoEjecucion;
+    payload: string;
+  };
+
+  type SincronizacionProps = Sincronizacion & Models.Row;
+
   type TodosProps =
     | IdentidadProps
+    | IdentidadLaboralProps
     | DepartamentoProps
-    | IdentidadAutenticacionProps;
+    | IdentidadAutenticacionProps
+    | SincronizacionProps;
 }
 
 export { Persona };

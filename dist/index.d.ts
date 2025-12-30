@@ -1,7 +1,7 @@
 import { ID, Query, Models, AppwriteException, Permission, Role, Operator } from "node-appwrite";
 import { Acceso, Asistencia, Persona, GestorDocumental, Historial } from "./types";
 import { JornadaTipo, TipoMarcacion, TipoJustificativo } from "./definicion/asistencia";
-import { EstadoComando } from "./definicion/acceso";
+import { EstadoEjecucion } from "./definicion/acceso";
 import { APIError, CODIGOS_ERROR } from "./APIError";
 export type { AppwriteClientConfig } from "./appwrite-sdk-builder";
 export { init, db, func, account, users, avatars, locale, messaging, storage, teams, } from "./global-sdk";
@@ -11,4 +11,4 @@ export type { AppwriteDBInterface, TableConfig as CollectionConfig, TablesMethod
 export { APIError, CODIGOS_ERROR };
 export type { CustomFunctions } from "./func";
 export { Acceso, Asistencia, Persona, GestorDocumental, Historial };
-export { TipoMarcacion, JornadaTipo, TipoJustificativo, EstadoComando };
+export { TipoMarcacion, JornadaTipo, TipoJustificativo, EstadoEjecucion };

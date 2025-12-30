@@ -26,6 +26,11 @@ export const acceso = [
         documentType: {} as Acceso.AutorizacionProps,
       },
       {
+        name: "sincronizacion",
+        id: "sincronizacion",
+        documentType: {} as Acceso.SincronizacionProps,
+      },
+      {
         name: "zona",
         id: "zona",
         documentType: {} as Acceso.ZonaProps,
@@ -34,7 +39,7 @@ export const acceso = [
   } as const,
 ] as const;
 
-export const EstadoComando = {
+export const EstadoEjecucion = {
   PENDIENTE: "PENDIENTE",
   EJECUTADO: "EJECUTADO",
   ERROR: "ERROR",
