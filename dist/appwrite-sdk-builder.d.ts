@@ -8,6 +8,7 @@ export interface AppwriteClientConfig {
     projectId: string;
     apiKey?: string;
     sessionToken?: string;
+    verbose?: boolean;
 }
 /**
  * Interfaz que define todas las instancias de los servicios de

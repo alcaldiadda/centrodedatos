@@ -31,11 +31,22 @@ function createGlobalServiceProxyHandler(serviceName) {
  * @param config Configuración para el cliente de Appwrite (endpoint, projectId, apiKey u optional sessionToken).
  */
 var init = function (config) {
-    if (_isInitialized) {
-        console.warn("centro-de-datos: El SDK global ya ha sido inicializado. La inicialización duplicada no tendrá efecto.");
+    if (_isInitialized && config.verbose) {
+        if (config.apiKey) {
+            _actualGlobalSDKInstance === null || _actualGlobalSDKInstance === void 0 ? void 0 : _actualGlobalSDKInstance.client.setKey(config.apiKey);
+        }
+        if (config.sessionToken) {
+            _actualGlobalSDKInstance === null || _actualGlobalSDKInstance === void 0 ? void 0 : _actualGlobalSDKInstance.client.setSession(config.sessionToken);
+        }
+        if (config.verbose) {
+            console.warn("centro-de-datos: El SDK global ya ha sido inicializado. La inicialización duplicada no tendrá efecto.");
+        }
         return;
     }
-    if (typeof window === "undefined" && !config.apiKey && !config.sessionToken) {
+    if (typeof window === "undefined" &&
+        !config.apiKey &&
+        !config.sessionToken &&
+        config.verbose) {
         console.warn("centro-de-datos: Advertencia: Has inicializado el SDK global en un entorno SSR/Node.js " +
             "sin una `apiKey` y sin un `sessionToken` fijo. " +
             "Las instancias `db` y `func` globales NO son adecuadas para sesiones de usuario dinámicas por solicitud. " +
@@ -44,14 +55,16 @@ var init = function (config) {
     }
     else if (typeof window === "undefined" &&
         !config.apiKey &&
-        config.sessionToken) {
+        config.sessionToken &&
+        config.verbose) {
         console.warn("centro-de-datos: Advertencia: Has inicializado el SDK global en un entorno SSR/Node.js " +
             "sin una `apiKey` y con un `sessionToken` fijo. Ten en cuenta que este `sessionToken` " +
             "será el mismo para todas las solicitudes. Para sesiones de usuario dinámicas por solicitud, " +
             "usa `CentroDeDatos({ endpoint, projectId, sessionToken })` en el contexto de cada solicitud.");
     }
-    var _a = (0, appwrite_sdk_builder_1.buildAppwriteClientInstances)(config), tablesDb = _a.tablesDb, functions = _a.functions, account = _a.account, users = _a.users, avatars = _a.avatars, locale = _a.locale, messaging = _a.messaging, storage = _a.storage, teams = _a.teams;
+    var _a = (0, appwrite_sdk_builder_1.buildAppwriteClientInstances)(config), client = _a.client, tablesDb = _a.tablesDb, functions = _a.functions, account = _a.account, users = _a.users, avatars = _a.avatars, locale = _a.locale, messaging = _a.messaging, storage = _a.storage, teams = _a.teams;
     _actualGlobalSDKInstance = {
+        client: client,
         db: (0, db_1.createDb)(tablesDb),
         func: (0, func_1.createFunc)(functions),
         account: account,
@@ -63,7 +76,9 @@ var init = function (config) {
         teams: teams,
     };
     _isInitialized = true;
-    console.log("centro-de-datos: SDK global inicializado.");
+    if (config.verbose) {
+        console.log("centro-de-datos: SDK global inicializado.");
+    }
 };
 exports.init = init;
 exports.db = new Proxy({}, createGlobalServiceProxyHandler("db"));

@@ -20,6 +20,7 @@ export interface AppwriteClientConfig {
   projectId: string;
   apiKey?: string;
   sessionToken?: string;
+  verbose?: boolean;
 }
 
 /**

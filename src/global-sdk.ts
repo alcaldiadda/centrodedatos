@@ -1,6 +1,7 @@
 import {
   Account,
   Avatars,
+  Client,
   Locale,
   Messaging,
   Storage,
@@ -16,6 +17,7 @@ import { definicion } from "./definicion";
 import { createFunc, CustomFunctions } from "./func";
 
 interface GlobalSDKCombinedInstance {
+  client: Client;
   db: AppwriteDBWithGlobals<typeof definicion>;
   func: CustomFunctions;
   account: Account;
@@ -63,14 +65,29 @@ function createGlobalServiceProxyHandler<
  * @param config Configuración para el cliente de Appwrite (endpoint, projectId, apiKey u optional sessionToken).
  */
 export const init = (config: AppwriteClientConfig): void => {
-  if (_isInitialized) {
-    console.warn(
-      "centro-de-datos: El SDK global ya ha sido inicializado. La inicialización duplicada no tendrá efecto."
-    );
+  if (_isInitialized && config.verbose) {
+    if (config.apiKey) {
+      _actualGlobalSDKInstance?.client.setKey(config.apiKey);
+    }
+
+    if (config.sessionToken) {
+      _actualGlobalSDKInstance?.client.setSession(config.sessionToken);
+    }
+
+    if (config.verbose) {
+      console.warn(
+        "centro-de-datos: El SDK global ya ha sido inicializado. La inicialización duplicada no tendrá efecto."
+      );
+    }
     return;
   }
 
-  if (typeof window === "undefined" && !config.apiKey && !config.sessionToken) {
+  if (
+    typeof window === "undefined" &&
+    !config.apiKey &&
+    !config.sessionToken &&
+    config.verbose
+  ) {
     console.warn(
       "centro-de-datos: Advertencia: Has inicializado el SDK global en un entorno SSR/Node.js " +
         "sin una `apiKey` y sin un `sessionToken` fijo. " +
@@ -81,7 +98,8 @@ export const init = (config: AppwriteClientConfig): void => {
   } else if (
     typeof window === "undefined" &&
     !config.apiKey &&
-    config.sessionToken
+    config.sessionToken &&
+    config.verbose
   ) {
     console.warn(
       "centro-de-datos: Advertencia: Has inicializado el SDK global en un entorno SSR/Node.js " +
@@ -92,6 +110,7 @@ export const init = (config: AppwriteClientConfig): void => {
   }
 
   const {
+    client,
     tablesDb,
     functions,
     account,
@@ -104,6 +123,7 @@ export const init = (config: AppwriteClientConfig): void => {
   } = buildAppwriteClientInstances(config);
 
   _actualGlobalSDKInstance = {
+    client,
     db: createDb(tablesDb),
     func: createFunc(functions),
     account: account,
@@ -114,9 +134,12 @@ export const init = (config: AppwriteClientConfig): void => {
     storage: storage,
     teams: teams,
   };
+
   _isInitialized = true;
 
-  console.log("centro-de-datos: SDK global inicializado.");
+  if (config.verbose) {
+    console.log("centro-de-datos: SDK global inicializado.");
+  }
 };
 
 export const db: AppwriteDBWithGlobals<typeof definicion> = new Proxy(
