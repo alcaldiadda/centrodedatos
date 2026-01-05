@@ -23,7 +23,7 @@ declare namespace Acceso {
         id_zona: string;
     };
     type DispositivoProps = Dispositivo & Models.Row;
-    type DispositivoComando = {
+    type Sincronizacion = {
         numero_serie: string;
         tipo: string;
         payload: string;
@@ -31,8 +31,8 @@ declare namespace Acceso {
         intentos: number;
         respuesta?: string;
     };
-    type DispositivoComandoProps = DispositivoComando & Models.Row;
-    type DispositivoLog = {
+    type SincronizacionProps = Sincronizacion & Models.Row;
+    type Registro = {
         numero_serie: string;
         codigo_op: string;
         nombre_op: string;
@@ -43,7 +43,7 @@ declare namespace Acceso {
         paramtro3?: string;
         paramtro4?: string;
     };
-    type DispositivoLogProps = DispositivoLog & Models.Row;
+    type RegistroProps = Registro & Models.Row;
     type Autorizacion = {
         id_identidad: string;
         id_zona: string;
@@ -51,17 +51,11 @@ declare namespace Acceso {
         fecha_fin?: string;
     };
     type AutorizacionProps = Autorizacion & Models.Row;
-    type Sincronizacion = {
-        pin: string;
-        tipo: typeof EstadoEjecucion;
-        payload: string;
-    };
-    type SincronizacionProps = Sincronizacion & Models.Row;
     type Zona = {
         nombre: string;
         descripcion?: string;
     };
     type ZonaProps = Zona & Models.Row;
-    type TodosProps = DispositivoProps | DispositivoComandoProps | DispositivoLogProps | AutorizacionProps | SincronizacionProps | ZonaProps;
+    type TodosProps = DispositivoProps | RegistroProps | AutorizacionProps | SincronizacionProps | ZonaProps;
 }
 export { Acceso };

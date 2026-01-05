@@ -12,16 +12,6 @@ exports.acceso = [
                 documentType: {},
             },
             {
-                name: "dispositivoComando",
-                id: "dispositivo-comando",
-                documentType: {},
-            },
-            {
-                name: "dispositivoLog",
-                id: "dispositivo-log",
-                documentType: {},
-            },
-            {
                 name: "autorizacion",
                 id: "autorizacion",
                 documentType: {},

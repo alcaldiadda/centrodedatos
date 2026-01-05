@@ -6,14 +6,6 @@ export declare const definicion: readonly [{
         readonly id: "dispositivo";
         readonly documentType: import("..").Acceso.DispositivoProps;
     }, {
-        readonly name: "dispositivoComando";
-        readonly id: "dispositivo-comando";
-        readonly documentType: import("..").Acceso.DispositivoComandoProps;
-    }, {
-        readonly name: "dispositivoLog";
-        readonly id: "dispositivo-log";
-        readonly documentType: import("..").Acceso.DispositivoLogProps;
-    }, {
         readonly name: "autorizacion";
         readonly id: "autorizacion";
         readonly documentType: import("..").Acceso.AutorizacionProps;
