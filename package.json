@@ -19,7 +19,7 @@
     "dist"
   ],
   "dependencies": {
-    "node-appwrite": "^20.3.0"
+    "node-appwrite": "^21.1.0"
   },
   "devDependencies": {
     "typescript": "^5.8.3"
