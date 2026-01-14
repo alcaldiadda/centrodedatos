@@ -30,8 +30,8 @@ declare namespace Acceso {
     numero_serie: string;
     tipo: string;
     payload: string;
-    estado: typeof EstadoEjecucion;
-    intentos: number;
+    estado?: typeof EstadoEjecucion;
+    intentos?: number;
     respuesta?: string;
   };
 
@@ -69,9 +69,9 @@ declare namespace Acceso {
 
   type TodosProps =
     | DispositivoProps
+    | SincronizacionProps
     | RegistroProps
     | AutorizacionProps
-    | SincronizacionProps
     | ZonaProps;
 }
 

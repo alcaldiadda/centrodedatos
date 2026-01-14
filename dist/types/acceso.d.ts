@@ -27,8 +27,8 @@ declare namespace Acceso {
         numero_serie: string;
         tipo: string;
         payload: string;
-        estado: typeof EstadoEjecucion;
-        intentos: number;
+        estado?: typeof EstadoEjecucion;
+        intentos?: number;
         respuesta?: string;
     };
     type SincronizacionProps = Sincronizacion & Models.Row;
@@ -56,6 +56,6 @@ declare namespace Acceso {
         descripcion?: string;
     };
     type ZonaProps = Zona & Models.Row;
-    type TodosProps = DispositivoProps | RegistroProps | AutorizacionProps | SincronizacionProps | ZonaProps;
+    type TodosProps = DispositivoProps | SincronizacionProps | RegistroProps | AutorizacionProps | ZonaProps;
 }
 export { Acceso };
