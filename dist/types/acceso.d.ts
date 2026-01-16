@@ -49,6 +49,7 @@ declare namespace Acceso {
         id_zona: string;
         fecha_inicio?: string;
         fecha_fin?: string;
+        estado: boolean;
     };
     type AutorizacionProps = Autorizacion & Models.Row;
     type Zona = {
