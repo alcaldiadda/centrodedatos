@@ -7,7 +7,7 @@ declare namespace Persona {
         avatar?: string;
         telefono?: string;
         celular?: string;
-        estado: boolean;
+        habilitado: boolean;
         fecha_nacimiento?: string;
         sexo?: string;
         estado_civil?: string;
