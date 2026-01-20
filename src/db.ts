@@ -128,7 +128,7 @@ export type AppwriteDBWithGlobals<T extends readonly DatabaseConfig[]> =
  * bases de datos de Appwrite. Requiere una instancia inicializada de 'Databases'.
  */
 export function createDb(
-  appwriteDatabases: TablesDB
+  appwriteTables: TablesDB
 ): AppwriteDBWithGlobals<typeof definicion> {
   const db: AppwriteDBWithGlobals<typeof definicion> =
     {} as AppwriteDBWithGlobals<typeof definicion>;
@@ -137,25 +137,25 @@ export function createDb(
   db.createOperations = (props: {
     operations?: object[];
     transactionId: string;
-  }) => appwriteDatabases.createOperations(props);
+  }) => appwriteTables.createOperations(props);
 
   db.createTransaction = (props?: { ttl?: number }) =>
-    appwriteDatabases.createTransaction(props);
+    appwriteTables.createTransaction(props);
 
   db.getTransaction = (props: { transactionId: string }) =>
-    appwriteDatabases.getTransaction(props);
+    appwriteTables.getTransaction(props);
 
   db.listTransaction = (props?: { queries?: string[] }) =>
-    appwriteDatabases.listTransactions(props);
+    appwriteTables.listTransactions(props);
 
   db.updateTransaction = (props: {
     transactionId: string;
     commit?: boolean;
     rollback?: boolean;
-  }) => appwriteDatabases.updateTransaction(props);
+  }) => appwriteTables.updateTransaction(props);
 
   db.deleteTransaction = (props: { transactionId: string }) =>
-    appwriteDatabases.deleteTransaction(props);
+    appwriteTables.deleteTransaction(props);
 
   definicion.forEach((dbConfig) => {
     (db as any)[dbConfig.name] = {}; // Inicializa la DB en el objeto db
@@ -163,73 +163,73 @@ export function createDb(
     dbConfig.tables.forEach((tableConfig) => {
       (db as any)[dbConfig.name][tableConfig.name] = {
         createRow: (props) =>
-          appwriteDatabases.createRow({
+          appwriteTables.createRow({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
         createRows: (props) =>
-          appwriteDatabases.createRows({
+          appwriteTables.createRows({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
         getRow: (props) =>
-          appwriteDatabases.getRow({
+          appwriteTables.getRow({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
         listRows: (props) =>
-          appwriteDatabases.listRows({
+          appwriteTables.listRows({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
         updateRow: (props) =>
-          appwriteDatabases.updateRow({
+          appwriteTables.updateRow({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
         updateRows: (props) =>
-          appwriteDatabases.updateRows({
+          appwriteTables.updateRows({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
         upsertRow: (props) =>
-          appwriteDatabases.upsertRow({
+          appwriteTables.upsertRow({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
         upsertRows: (props) =>
-          appwriteDatabases.upsertRows({
+          appwriteTables.upsertRows({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
         deleteRow: (props) =>
-          appwriteDatabases.deleteRow({
+          appwriteTables.deleteRow({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
         deleteRows: (props) =>
-          appwriteDatabases.deleteRows({
+          appwriteTables.deleteRows({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
         incrementRowColumn: (props) =>
-          appwriteDatabases.incrementRowColumn({
+          appwriteTables.incrementRowColumn({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,
           }),
         decrementRowColumn: (props) =>
-          appwriteDatabases.decrementRowColumn({
+          appwriteTables.decrementRowColumn({
             ...props,
             databaseId: dbConfig.id,
             tableId: tableConfig.id,

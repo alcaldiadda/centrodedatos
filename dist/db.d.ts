@@ -110,4 +110,4 @@ export type AppwriteDBWithGlobals<T extends readonly DatabaseConfig[]> = Appwrit
  * Crea y devuelve el objeto 'db' tipado para interactuar con las
  * bases de datos de Appwrite. Requiere una instancia inicializada de 'Databases'.
  */
-export declare function createDb(appwriteDatabases: TablesDB): AppwriteDBWithGlobals<typeof definicion>;
+export declare function createDb(appwriteTables: TablesDB): AppwriteDBWithGlobals<typeof definicion>;
