@@ -5,6 +5,13 @@ declare namespace Acceso {
   type Dispositivo = {
     numero_serie: string;
     habilitado: boolean;
+    id_zona: string;
+  };
+
+  type DispositivoProps = Dispositivo & Models.Row;
+
+  type MonitorDispositivo = {
+    id_dispositivo: string;
     ip?: string;
     logs: boolean;
     heartbeat?: string;
@@ -21,10 +28,9 @@ declare namespace Acceso {
     cantidad_rostros?: string;
     cantidad_espacio?: string;
     cantidad_registros?: string;
-    id_zona: string;
   };
 
-  type DispositivoProps = Dispositivo & Models.Row;
+  type MonitorDispositivoProps = MonitorDispositivo & Models.Row;
 
   type Sincronizacion = {
     numero_serie: string;
@@ -70,6 +76,7 @@ declare namespace Acceso {
 
   type TodosProps =
     | DispositivoProps
+    | MonitorDispositivoProps
     | SincronizacionProps
     | RegistroProps
     | AutorizacionProps
