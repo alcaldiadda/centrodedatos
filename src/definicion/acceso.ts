@@ -11,9 +11,19 @@ export const acceso = [
         documentType: {} as Acceso.DispositivoProps,
       },
       {
+        name: "monitorDispositivo",
+        id: "monitor-dispositivo",
+        documentType: {} as Acceso.MonitorDispositivoProps,
+      },
+      {
         name: "autorizacion",
         id: "autorizacion",
         documentType: {} as Acceso.AutorizacionProps,
+      },
+      {
+        name: "registro",
+        id: "registro",
+        documentType: {} as Acceso.RegistroProps,
       },
       {
         name: "sincronizacion",

@@ -7,9 +7,17 @@ export declare const acceso: readonly [{
         readonly id: "dispositivo";
         readonly documentType: Acceso.DispositivoProps;
     }, {
+        readonly name: "monitorDispositivo";
+        readonly id: "monitor-dispositivo";
+        readonly documentType: Acceso.MonitorDispositivoProps;
+    }, {
         readonly name: "autorizacion";
         readonly id: "autorizacion";
         readonly documentType: Acceso.AutorizacionProps;
+    }, {
+        readonly name: "registro";
+        readonly id: "registro";
+        readonly documentType: Acceso.RegistroProps;
     }, {
         readonly name: "sincronizacion";
         readonly id: "sincronizacion";

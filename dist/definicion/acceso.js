@@ -12,8 +12,18 @@ exports.acceso = [
                 documentType: {},
             },
             {
+                name: "monitorDispositivo",
+                id: "monitor-dispositivo",
+                documentType: {},
+            },
+            {
                 name: "autorizacion",
                 id: "autorizacion",
+                documentType: {},
+            },
+            {
+                name: "registro",
+                id: "registro",
                 documentType: {},
             },
             {
